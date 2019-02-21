@@ -710,12 +710,7 @@ int verity_fec_ctr(struct dm_verity *v)
 	int r;
 	struct dm_verity_fec *f = v->fec;
 	struct dm_target *ti = v->ti;
-<<<<<<< HEAD
-	struct mapped_device *md = dm_table_get_md(ti->table);
-	u64 hash_blocks;
-=======
 	u64 hash_blocks, fec_blocks;
->>>>>>> 9741874007da (dm verity: fix FEC for RS roots unaligned to block size)
 	int ret;
 
 	if (!verity_fec_is_enabled(v)) {
