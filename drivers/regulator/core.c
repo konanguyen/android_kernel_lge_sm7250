@@ -1714,9 +1714,6 @@ static int regulator_resolve_supply(struct regulator_dev *rdev)
 		goto out;
 	}
 
-<<<<<<< HEAD
-	return 0;
-=======
 	/* Cascade always-on state to supply */
 	if (_regulator_is_enabled(rdev)) {
 		ret = regulator_enable(rdev->supply);
@@ -1730,7 +1727,6 @@ static int regulator_resolve_supply(struct regulator_dev *rdev)
 out:
 	regulator_unlock(rdev);
 	return ret;
->>>>>>> 1d915c56268f (regulator: core: avoid regulator_resolve_supply() race condition)
 }
 
 /* Internal regulator request function */
