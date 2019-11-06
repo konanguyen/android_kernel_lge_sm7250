@@ -837,7 +837,6 @@ void __noreturn do_exit(long code)
 	}
 
 	exit_signals(tsk);  /* sets PF_EXITING */
-<<<<<<< HEAD
 	sched_exit(tsk);
 	/*
 	 * Ensure that all new tsk->pi_lock acquisitions must observe
@@ -850,8 +849,6 @@ void __noreturn do_exit(long code)
 	 */
 	raw_spin_lock_irq(&tsk->pi_lock);
 	raw_spin_unlock_irq(&tsk->pi_lock);
-=======
->>>>>>> 226eed1ef71d (futex: Mark the begin of futex exit explicitly)
 
 	/* sync mm's RSS info before statistics gathering */
 	if (tsk->mm)
