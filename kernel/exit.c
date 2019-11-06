@@ -831,12 +831,13 @@ void __noreturn do_exit(long code)
 	 */
 	if (unlikely(tsk->flags & PF_EXITING)) {
 		pr_alert("Fixing recursive fault but reboot is needed!\n");
-		futex_exit_done(tsk);
+		futex_exit_recursive(tsk);
 		set_current_state(TASK_UNINTERRUPTIBLE);
 		schedule();
 	}
 
 	exit_signals(tsk);  /* sets PF_EXITING */
+<<<<<<< HEAD
 	sched_exit(tsk);
 	/*
 	 * Ensure that all new tsk->pi_lock acquisitions must observe
@@ -849,6 +850,8 @@ void __noreturn do_exit(long code)
 	 */
 	raw_spin_lock_irq(&tsk->pi_lock);
 	raw_spin_unlock_irq(&tsk->pi_lock);
+=======
+>>>>>>> 226eed1ef71d (futex: Mark the begin of futex exit explicitly)
 
 	/* sync mm's RSS info before statistics gathering */
 	if (tsk->mm)
