@@ -176,7 +176,11 @@ static int usb_string_copy(const char *s, char **s_copy)
 	char *str;
 	char *copy = *s_copy;
 	ret = strlen(s);
+<<<<<<< HEAD
 	if (ret > MAX_USB_STRING_LEN)
+=======
+	if (ret > USB_MAX_STRING_LEN)
+>>>>>>> eac35ed3f834 (USB: replace hardcode maximum usb string length by definition)
 		return -EOVERFLOW;
 
 	if (copy) {
