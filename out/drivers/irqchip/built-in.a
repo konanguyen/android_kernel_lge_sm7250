@@ -1,0 +1,29 @@
+!<thin>
+//                                              236       `
+irqchip.o/
+irq-gic.o/
+irq-gic-common.o/
+irq-gic-v2m.o/
+irq-gic-v3.o/
+irq-gic-v3-mbi.o/
+irq-gic-v3-its.o/
+irq-gic-v3-its-platform-msi.o/
+irq-gic-v4.o/
+irq-gic-v3-its-pci-msi.o/
+irq-partition-percpu.o/
+msm_show_resume_irq.o/
+qcom-pdc.o/
+
+/0              0           0     0     644     4696      `
+/11             0           0     0     644     205072    `
+/22             0           0     0     644     20664     `
+/40             0           0     0     644     168184    `
+/55             0           0     0     644     252872    `
+/69             0           0     0     644     168584    `
+/87             0           0     0     644     360792    `
+/105            0           0     0     644     95672     `
+/136            0           0     0     644     84256     `
+/150            0           0     0     644     151648    `
+/176            0           0     0     644     149432    `
+/200            0           0     0     644     25136     `
+/223            0           0     0     644     117792    `

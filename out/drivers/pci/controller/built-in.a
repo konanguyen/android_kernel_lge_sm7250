@@ -1,0 +1,11 @@
+!<thin>
+//                                              70        `
+dwc/pcie-hisi.o/
+pci-thunder-ecam.o/
+pci-thunder-pem.o/
+pci-xgene.o/
+
+/0              0           0     0     644     1008      `
+/17             0           0     0     644     1016      `
+/37             0           0     0     644     1008      `
+/56             0           0     0     644     1008      `

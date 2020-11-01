@@ -1,0 +1,69 @@
+!<thin>
+//                                              490       `
+common.o/
+clk-regmap.o/
+clk-alpha-pll.o/
+clk-pll.o/
+clk-rcg.o/
+clk-rcg2.o/
+clk-branch.o/
+clk-regmap-divider.o/
+clk-regmap-mux.o/
+clk-regmap-mux-div.o/
+reset.o/
+clk-voter.o/
+clk-dummy.o/
+clk-debug.o/
+gdsc-regulator.o/
+gdsc.o/
+clk-aop-qmp.o/
+clk-rpmh.o/
+camcc-lagoon.o/
+debugcc-lagoon.o/
+dispcc-lagoon.o/
+gcc-lagoon.o/
+gpucc-lagoon.o/
+npucc-lagoon.o/
+videocc-lagoon.o/
+camcc-lito.o/
+debugcc-lito.o/
+dispcc-lito.o/
+gcc-lito.o/
+gpucc-lito.o/
+npucc-lito.o/
+videocc-lito.o/
+clk-spmi-pmic-div.o/
+
+/0              0           0     0     644     160600    `
+/10             0           0     0     644     126056    `
+/24             0           0     0     644     236736    `
+/41             0           0     0     644     139616    `
+/52             0           0     0     644     145848    `
+/63             0           0     0     644     203872    `
+/75             0           0     0     644     124776    `
+/89             0           0     0     644     106064    `
+/111            0           0     0     644     101664    `
+/129            0           0     0     644     118200    `
+/151            0           0     0     644     9616      `
+/160            0           0     0     644     17152     `
+/173            0           0     0     644     85312     `
+/186            0           0     0     644     146656    `
+/199            0           0     0     644     239584    `
+/217            0           0     0     644     53616     `
+/225            0           0     0     644     101128    `
+/240            0           0     0     644     136008    `
+/252            0           0     0     644     211296    `
+/268            0           0     0     644     127368    `
+/286            0           0     0     644     171288    `
+/303            0           0     0     644     235088    `
+/317            0           0     0     644     161568    `
+/333            0           0     0     644     168904    `
+/349            0           0     0     644     155064    `
+/367            0           0     0     644     221720    `
+/381            0           0     0     644     132312    `
+/397            0           0     0     644     186000    `
+/412            0           0     0     644     236016    `
+/424            0           0     0     644     155320    `
+/438            0           0     0     644     183592    `
+/452            0           0     0     644     163736    `
+/468            0           0     0     644     108896    `

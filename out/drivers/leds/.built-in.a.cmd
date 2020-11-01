@@ -1,0 +1,1 @@
+cmd_drivers/leds/built-in.a :=  rm -f drivers/leds/built-in.a; llvm-ar rcSTPD drivers/leds/built-in.a drivers/leds/led-core.o drivers/leds/led-class.o drivers/leds/led-triggers.o drivers/leds/leds-qti-tri-led.o drivers/leds/leds-qpnp-flash-v2.o drivers/leds/leds-qpnp-flash-common.o drivers/leds/leds-qpnp-vibrator-ldo.o drivers/leds/trigger/built-in.a

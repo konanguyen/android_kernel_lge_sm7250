@@ -1,0 +1,180 @@
+drivers/soc/qcom/lge/Kconfig:40:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:48:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:56:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:72:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:88:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:104:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:40:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:48:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:56:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:72:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:88:warning: leading whitespace ignored
+drivers/soc/qcom/lge/Kconfig:104:warning: leading whitespace ignored
+net/mptcp/Kconfig:52:warning: choice default symbol 'DEFAULT' is not contained in the choice
+net/mptcp/Kconfig:114:warning: choice default symbol 'DEFAULT' is not contained in the choice
+drivers/soc/qcom/lge/Kconfig:192:warning: 'LGE_RTC_START_YEAR': number is invalid
+drivers/soc/qcom/lge/Kconfig:192:warning: 'LGE_RTC_START_YEAR': number is invalid
+
+WARNING: unmet direct dependencies detected for MOUSE_APPLETOUCH
+  Depends on [n]: !UML && INPUT [=y] && INPUT_MOUSE [=n] && USB_ARCH_HAS_HCD [=y]
+  Selected by [y]:
+  - LGE_USB_SUPPORT_LIST_INPUT [=y] && LGE_USB [=y]
+
+WARNING: unmet direct dependencies detected for MOUSE_BCM5974
+  Depends on [n]: !UML && INPUT [=y] && INPUT_MOUSE [=n] && USB_ARCH_HAS_HCD [=y]
+  Selected by [y]:
+  - LGE_USB_SUPPORT_LIST_INPUT [=y] && LGE_USB [=y]
+
+WARNING: unmet direct dependencies detected for MOUSE_SYNAPTICS_USB
+  Depends on [n]: !UML && INPUT [=y] && INPUT_MOUSE [=n] && USB_ARCH_HAS_HCD [=y]
+  Selected by [y]:
+  - LGE_USB_SUPPORT_LIST_INPUT [=y] && LGE_USB [=y]
+
+WARNING: unmet direct dependencies detected for MOUSE_APPLETOUCH
+  Depends on [n]: !UML && INPUT [=y] && INPUT_MOUSE [=n] && USB_ARCH_HAS_HCD [=y]
+  Selected by [y]:
+  - LGE_USB_SUPPORT_LIST_INPUT [=y] && LGE_USB [=y]
+
+WARNING: unmet direct dependencies detected for MOUSE_BCM5974
+  Depends on [n]: !UML && INPUT [=y] && INPUT_MOUSE [=n] && USB_ARCH_HAS_HCD [=y]
+  Selected by [y]:
+  - LGE_USB_SUPPORT_LIST_INPUT [=y] && LGE_USB [=y]
+
+WARNING: unmet direct dependencies detected for MOUSE_SYNAPTICS_USB
+  Depends on [n]: !UML && INPUT [=y] && INPUT_MOUSE [=n] && USB_ARCH_HAS_HCD [=y]
+  Selected by [y]:
+  - LGE_USB_SUPPORT_LIST_INPUT [=y] && LGE_USB [=y]
+
+WARNING: unmet direct dependencies detected for MOUSE_APPLETOUCH
+  Depends on [n]: !UML && INPUT [=y] && INPUT_MOUSE [=n] && USB_ARCH_HAS_HCD [=y]
+  Selected by [y]:
+  - LGE_USB_SUPPORT_LIST_INPUT [=y] && LGE_USB [=y]
+
+WARNING: unmet direct dependencies detected for MOUSE_BCM5974
+  Depends on [n]: !UML && INPUT [=y] && INPUT_MOUSE [=n] && USB_ARCH_HAS_HCD [=y]
+  Selected by [y]:
+  - LGE_USB_SUPPORT_LIST_INPUT [=y] && LGE_USB [=y]
+
+WARNING: unmet direct dependencies detected for MOUSE_SYNAPTICS_USB
+  Depends on [n]: !UML && INPUT [=y] && INPUT_MOUSE [=n] && USB_ARCH_HAS_HCD [=y]
+  Selected by [y]:
+  - LGE_USB_SUPPORT_LIST_INPUT [=y] && LGE_USB [=y]
+../scripts/sign-file.c: In function ‘display_openssl_errors’:
+../scripts/sign-file.c:89:9: warning: ‘ERR_get_error_line’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+   89 |         while ((e = ERR_get_error_line(&file, &line))) {
+      |         ^~~~~
+In file included from ../scripts/sign-file.c:29:
+/usr/include/openssl/err.h:423:15: note: declared here
+  423 | unsigned long ERR_get_error_line(const char **file, int *line);
+      |               ^~~~~~~~~~~~~~~~~~
+../scripts/sign-file.c: In function ‘drain_openssl_errors’:
+../scripts/sign-file.c:102:9: warning: ‘ERR_get_error_line’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  102 |         while (ERR_get_error_line(&file, &line)) {}
+      |         ^~~~~
+/usr/include/openssl/err.h:423:15: note: declared here
+  423 | unsigned long ERR_get_error_line(const char **file, int *line);
+      |               ^~~~~~~~~~~~~~~~~~
+../scripts/sign-file.c: In function ‘read_private_key’:
+../scripts/sign-file.c:142:17: warning: ‘ENGINE_load_builtin_engines’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  142 |                 ENGINE_load_builtin_engines();
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../scripts/sign-file.c:30:
+/usr/include/openssl/engine.h:358:28: note: declared here
+  358 | OSSL_DEPRECATEDIN_3_0 void ENGINE_load_builtin_engines(void);
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../scripts/sign-file.c:144:17: warning: ‘ENGINE_by_id’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  144 |                 e = ENGINE_by_id("pkcs11");
+      |                 ^
+/usr/include/openssl/engine.h:336:31: note: declared here
+  336 | OSSL_DEPRECATEDIN_3_0 ENGINE *ENGINE_by_id(const char *id);
+      |                               ^~~~~~~~~~~~
+../scripts/sign-file.c:146:17: warning: ‘ENGINE_init’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  146 |                 if (ENGINE_init(e))
+      |                 ^~
+/usr/include/openssl/engine.h:620:27: note: declared here
+  620 | OSSL_DEPRECATEDIN_3_0 int ENGINE_init(ENGINE *e);
+      |                           ^~~~~~~~~~~
+../scripts/sign-file.c:151:25: warning: ‘ENGINE_ctrl_cmd_string’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  151 |                         ERR(!ENGINE_ctrl_cmd_string(e, "PIN", key_pass, 0),
+      |                         ^~~
+/usr/include/openssl/engine.h:479:5: note: declared here
+  479 | int ENGINE_ctrl_cmd_string(ENGINE *e, const char *cmd_name, const char *arg,
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+../scripts/sign-file.c:153:17: warning: ‘ENGINE_load_private_key’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  153 |                 private_key = ENGINE_load_private_key(e, private_key_name,
+      |                 ^~~~~~~~~~~
+/usr/include/openssl/engine.h:638:11: note: declared here
+  638 | EVP_PKEY *ENGINE_load_private_key(ENGINE *e, const char *key_id,
+      |           ^~~~~~~~~~~~~~~~~~~~~~~
+../scripts/extract-cert.c: In function ‘display_openssl_errors’:
+../scripts/extract-cert.c:46:9: warning: ‘ERR_get_error_line’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+   46 |         while ((e = ERR_get_error_line(&file, &line))) {
+      |         ^~~~~
+In file included from ../scripts/extract-cert.c:23:
+/usr/include/openssl/err.h:423:15: note: declared here
+  423 | unsigned long ERR_get_error_line(const char **file, int *line);
+      |               ^~~~~~~~~~~~~~~~~~
+../scripts/extract-cert.c: In function ‘drain_openssl_errors’:
+../scripts/extract-cert.c:59:9: warning: ‘ERR_get_error_line’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+   59 |         while (ERR_get_error_line(&file, &line)) {}
+      |         ^~~~~
+/usr/include/openssl/err.h:423:15: note: declared here
+  423 | unsigned long ERR_get_error_line(const char **file, int *line);
+      |               ^~~~~~~~~~~~~~~~~~
+../scripts/extract-cert.c: In function ‘main’:
+../scripts/extract-cert.c:124:17: warning: ‘ENGINE_load_builtin_engines’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  124 |                 ENGINE_load_builtin_engines();
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../scripts/extract-cert.c:24:
+/usr/include/openssl/engine.h:358:28: note: declared here
+  358 | OSSL_DEPRECATEDIN_3_0 void ENGINE_load_builtin_engines(void);
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../scripts/extract-cert.c:126:17: warning: ‘ENGINE_by_id’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  126 |                 e = ENGINE_by_id("pkcs11");
+      |                 ^
+/usr/include/openssl/engine.h:336:31: note: declared here
+  336 | OSSL_DEPRECATEDIN_3_0 ENGINE *ENGINE_by_id(const char *id);
+      |                               ^~~~~~~~~~~~
+../scripts/extract-cert.c:128:17: warning: ‘ENGINE_init’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  128 |                 if (ENGINE_init(e))
+      |                 ^~
+/usr/include/openssl/engine.h:620:27: note: declared here
+  620 | OSSL_DEPRECATEDIN_3_0 int ENGINE_init(ENGINE *e);
+      |                           ^~~~~~~~~~~
+../scripts/extract-cert.c:133:25: warning: ‘ENGINE_ctrl_cmd_string’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  133 |                         ERR(!ENGINE_ctrl_cmd_string(e, "PIN", key_pass, 0), "Set PKCS#11 PIN");
+      |                         ^~~
+/usr/include/openssl/engine.h:479:5: note: declared here
+  479 | int ENGINE_ctrl_cmd_string(ENGINE *e, const char *cmd_name, const char *arg,
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+../scripts/extract-cert.c:134:17: warning: ‘ENGINE_ctrl_cmd’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  134 |                 ENGINE_ctrl_cmd(e, "LOAD_CERT_CTRL", 0, &parms, NULL, 1);
+      |                 ^~~~~~~~~~~~~~~
+/usr/include/openssl/engine.h:450:27: note: declared here
+  450 | OSSL_DEPRECATEDIN_3_0 int ENGINE_ctrl_cmd(ENGINE *e, const char *cmd_name,
+      |                           ^~~~~~~~~~~~~~~
+cp: cannot stat '../firmware/lattice/u11hc_spi_lge_des_impl_1.bin': No such file or directory
+make[2]: *** [../firmware/Makefile:79: firmware/lattice/u11hc_spi_lge_des_impl_1.bin] Error 1
+make[1]: *** [/home/konadev/android_kernel_lge_sm7250/Makefile:1203: firmware] Error 2
+make[1]: *** Waiting for unfinished jobs....
+../drivers/net/ethernet/qualcomm/rmnet/rmnet_handlers.c:451:9: error: implicit declaration of function 'rmnet_get_port_rcu' [-Werror,-Wimplicit-function-declaration]
+  451 |         port = rmnet_get_port_rcu(dev);
+      |                ^
+../drivers/net/ethernet/qualcomm/rmnet/rmnet_handlers.c:451:9: note: did you mean 'rmnet_get_port'?
+../drivers/net/ethernet/qualcomm/rmnet/rmnet_config.h:185:20: note: 'rmnet_get_port' declared here
+  185 | struct rmnet_port *rmnet_get_port(struct net_device *real_dev);
+      |                    ^
+../drivers/net/ethernet/qualcomm/rmnet/rmnet_handlers.c:451:7: error: incompatible integer to pointer conversion assigning to 'struct rmnet_port *' from 'int' [-Wint-conversion]
+  451 |         port = rmnet_get_port_rcu(dev);
+      |              ^ ~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
+make[6]: *** [../scripts/Makefile.build:338: drivers/net/ethernet/qualcomm/rmnet/rmnet_handlers.o] Error 1
+make[6]: *** Waiting for unfinished jobs....
+make[5]: *** [../scripts/Makefile.build:642: drivers/net/ethernet/qualcomm/rmnet] Error 2
+make[4]: *** [../scripts/Makefile.build:642: drivers/net/ethernet/qualcomm] Error 2
+make[3]: *** [../scripts/Makefile.build:642: drivers/net/ethernet] Error 2
+make[3]: *** Waiting for unfinished jobs....
+make[2]: *** [../scripts/Makefile.build:642: drivers/net] Error 2
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/home/konadev/android_kernel_lge_sm7250/Makefile:1203: drivers] Error 2
+make: *** [Makefile:146: sub-make] Error 2

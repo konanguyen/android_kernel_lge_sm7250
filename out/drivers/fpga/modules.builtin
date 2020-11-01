@@ -1,0 +1,2 @@
+kernel/drivers/fpga/fpga-mgr.ko
+kernel/drivers/fpga/ice40-spi.ko

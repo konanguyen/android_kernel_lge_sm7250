@@ -1,0 +1,19 @@
+!<thin>
+//                                              136       `
+i2c-boardinfo.o/
+i2c-core-base.o/
+i2c-core-smbus.o/
+i2c-core-of.o/
+i2c-dev.o/
+i2c-mux.o/
+algos/i2c-algo-bit.o/
+busses/i2c-qcom-geni.o/
+
+/0              0           0     0     644     74968     `
+/17             0           0     0     644     389032    `
+/34             0           0     0     644     286032    `
+/52             0           0     0     644     97040     `
+/67             0           0     0     644     181656    `
+/78             0           0     0     644     104568    `
+/89             0           0     0     644     105432    `
+/111            0           0     0     644     241256    `

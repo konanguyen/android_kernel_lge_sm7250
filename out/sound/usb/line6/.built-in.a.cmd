@@ -1,0 +1,1 @@
+cmd_sound/usb/line6/built-in.a :=  rm -f sound/usb/line6/built-in.a; llvm-ar rcSTPD sound/usb/line6/built-in.a sound/usb/line6/capture.o sound/usb/line6/driver.o sound/usb/line6/midi.o sound/usb/line6/midibuf.o sound/usb/line6/pcm.o sound/usb/line6/playback.o sound/usb/line6/pod.o sound/usb/line6/podhd.o sound/usb/line6/toneport.o sound/usb/line6/variax.o

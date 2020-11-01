@@ -1,0 +1,1 @@
+cmd_drivers/misc/fpr_FingerprintCard/built-in.a :=  rm -f drivers/misc/fpr_FingerprintCard/built-in.a; llvm-ar rcSTPD drivers/misc/fpr_FingerprintCard/built-in.a drivers/misc/fpr_FingerprintCard/fpc1020_platform_tee.o

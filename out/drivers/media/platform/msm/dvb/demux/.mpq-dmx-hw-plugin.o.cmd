@@ -1,0 +1,1 @@
+cmd_drivers/media/platform/msm/dvb/demux/mpq-dmx-hw-plugin.o := aarch64-linux-gnu-ld -EL  -maarch64elf   -r -o drivers/media/platform/msm/dvb/demux/mpq-dmx-hw-plugin.o drivers/media/platform/msm/dvb/demux/mpq_dmx_plugin_common.o drivers/media/platform/msm/dvb/demux/mpq_sdmx.o drivers/media/platform/msm/dvb/demux/mpq_dmx_plugin_sw.o 

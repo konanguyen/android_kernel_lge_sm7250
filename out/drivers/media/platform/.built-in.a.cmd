@@ -1,0 +1,1 @@
+cmd_drivers/media/platform/built-in.a :=  rm -f drivers/media/platform/built-in.a; llvm-ar rcSTPD drivers/media/platform/built-in.a drivers/media/platform/stm32/built-in.a drivers/media/platform/davinci/built-in.a drivers/media/platform/omap/built-in.a drivers/media/platform/meson/built-in.a drivers/media/platform/msm/built-in.a drivers/media/platform/cros-ec-cec/built-in.a

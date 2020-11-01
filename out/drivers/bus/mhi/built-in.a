@@ -1,0 +1,12 @@
+!<thin>
+//                                              82        `
+core/mhi_init.o/
+core/mhi_main.o/
+core/mhi_pm.o/
+core/mhi_boot.o/
+core/mhi_dtr.o/
+/0              0           0     0     644     310976    `
+/17             0           0     0     644     356744    `
+/34             0           0     0     644     311712    `
+/49             0           0     0     644     217168    `
+/66             0           0     0     644     168856    `

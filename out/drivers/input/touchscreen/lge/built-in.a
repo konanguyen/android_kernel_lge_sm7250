@@ -1,0 +1,35 @@
+!<thin>
+//                                              346       `
+touch_core.o/
+touch_core_sysfs.o/
+touch_common.o/
+touch_i2c.o/
+touch_spi.o/
+touch_model.o/
+touch_notify.o/
+module/touch_module_builtIn.o/
+touch_hwif.o/
+touch_pen.o/
+touch_dex.o/
+lgsic/sw42902/touch_sw42902.o/
+lgsic/sw42902/touch_sw42902_prd.o/
+lgsic/sw42902/touch_sw42902_abt.o/
+lgsic/sw49107/touch_sw49107.o/
+lgsic/sw49107/touch_sw49107_prd.o/
+
+/0              0           0     0     644     311248    `
+/14             0           0     0     644     347040    `
+/34             0           0     0     644     171264    `
+/50             0           0     0     644     187928    `
+/63             0           0     0     644     187400    `
+/76             0           0     0     644     179408    `
+/91             0           0     0     644     21408     `
+/107            0           0     0     644     221280    `
+/138            0           0     0     644     206024    `
+/152            0           0     0     644     226888    `
+/165            0           0     0     644     180864    `
+/178            0           0     0     644     556128    `
+/209            0           0     0     644     500240    `
+/244            0           0     0     644     287488    `
+/279            0           0     0     644     392552    `
+/310            0           0     0     644     349968    `

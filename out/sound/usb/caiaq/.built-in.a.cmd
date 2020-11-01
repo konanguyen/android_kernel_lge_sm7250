@@ -1,0 +1,1 @@
+cmd_sound/usb/caiaq/built-in.a :=  rm -f sound/usb/caiaq/built-in.a; llvm-ar rcSTPD sound/usb/caiaq/built-in.a sound/usb/caiaq/device.o sound/usb/caiaq/audio.o sound/usb/caiaq/midi.o sound/usb/caiaq/control.o sound/usb/caiaq/input.o

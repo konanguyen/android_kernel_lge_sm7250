@@ -1,0 +1,90 @@
+!<thin>
+//                                              1146      `
+input.o/
+input-compat.o/
+input-mt.o/
+ff-core.o/
+event_notify.o/
+ff-memless.o/
+input-leds.o/
+mousedev.o/
+evdev.o/
+keyboard/atkbd.o/
+keyboard/gpio_keys.o/
+keyboard/hall_ic.o/
+joystick/iforce/iforce-ff.o/
+joystick/iforce/iforce-main.o/
+joystick/iforce/iforce-packets.o/
+joystick/iforce/iforce-usb.o/
+joystick/xpad.o/
+tablet/acecad.o/
+tablet/aiptek.o/
+tablet/gtco.o/
+tablet/hanwang.o/
+tablet/kbtab.o/
+tablet/wacom_serial4.o/
+touchscreen/of_touchscreen.o/
+touchscreen/lge/touch_core.o/
+touchscreen/lge/touch_core_sysfs.o/
+touchscreen/lge/touch_common.o/
+touchscreen/lge/touch_i2c.o/
+touchscreen/lge/touch_spi.o/
+touchscreen/lge/touch_model.o/
+touchscreen/lge/touch_notify.o/
+touchscreen/lge/module/touch_module_builtIn.o/
+touchscreen/lge/touch_hwif.o/
+touchscreen/lge/touch_pen.o/
+touchscreen/lge/touch_dex.o/
+touchscreen/lge/lgsic/sw42902/touch_sw42902.o/
+touchscreen/lge/lgsic/sw42902/touch_sw42902_prd.o/
+touchscreen/lge/lgsic/sw42902/touch_sw42902_abt.o/
+touchscreen/lge/lgsic/sw49107/touch_sw49107.o/
+touchscreen/lge/lgsic/sw49107/touch_sw49107_prd.o/
+misc/qpnp-power-on.o/
+misc/uinput.o/
+misc/almf04_c2_c3_12qfn.o/
+fingerprint/et713_platform.o/
+/0              0           0     0     644     311536    `
+/9              0           0     0     644     106328    `
+/25             0           0     0     644     144120    `
+/37             0           0     0     644     142216    `
+/48             0           0     0     644     11776     `
+/64             0           0     0     644     150424    `
+/78             0           0     0     644     139056    `
+/92             0           0     0     644     190616    `
+/104            0           0     0     644     252736    `
+/113            0           0     0     644     207392    `
+/131            0           0     0     644     228904    `
+/153            0           0     0     644     51360     `
+/173            0           0     0     644     159968    `
+/202            0           0     0     644     171560    `
+/233            0           0     0     644     156720    `
+/267            0           0     0     644     155480    `
+/297            0           0     0     644     241328    `
+/314            0           0     0     644     159456    `
+/331            0           0     0     644     227616    `
+/348            0           0     0     644     177280    `
+/363            0           0     0     644     166272    `
+/381            0           0     0     644     156816    `
+/397            0           0     0     644     153448    `
+/421            0           0     0     644     139440    `
+/451            0           0     0     644     311248    `
+/481            0           0     0     644     347040    `
+/517            0           0     0     644     171264    `
+/549            0           0     0     644     187928    `
+/578            0           0     0     644     187400    `
+/607            0           0     0     644     179408    `
+/638            0           0     0     644     21408     `
+/670            0           0     0     644     221280    `
+/717            0           0     0     644     206024    `
+/747            0           0     0     644     226888    `
+/776            0           0     0     644     180864    `
+/805            0           0     0     644     556128    `
+/852            0           0     0     644     500240    `
+/903            0           0     0     644     287488    `
+/954            0           0     0     644     392552    `
+/1001           0           0     0     644     349968    `
+/1052           0           0     0     644     355376    `
+/1074           0           0     0     644     204504    `
+/1089           0           0     0     644     348776    `
+/1116           0           0     0     644     212600    `

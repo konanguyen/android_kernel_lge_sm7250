@@ -1,0 +1,1 @@
+cmd_drivers/crypto/msm/built-in.a :=  rm -f drivers/crypto/msm/built-in.a; llvm-ar rcSTPD drivers/crypto/msm/built-in.a drivers/crypto/msm/qce50.o drivers/crypto/msm/qcedev.o drivers/crypto/msm/qcedev_smmu.o drivers/crypto/msm/qcrypto.o

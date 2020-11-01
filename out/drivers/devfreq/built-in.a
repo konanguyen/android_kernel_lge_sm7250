@@ -1,0 +1,36 @@
+!<thin>
+//                                              344       `
+devfreq.o/
+governor_simpleondemand.o/
+governor_performance.o/
+governor_powersave.o/
+governor_userspace.o/
+governor_passive.o/
+bimc-bwmon.o/
+arm-memlat-mon.o/
+governor_bw_hwmon.o/
+governor_memlat.o/
+governor_msm_adreno_tz.o/
+governor_bw_vbif.o/
+governor_gpubw_mon.o/
+governor_cdsp_l3.o/
+devfreq_qcom_fw.o/
+devfreq_devbw.o/
+devfreq_simple_dev.o/
+/0              0           0     0     644     183888    `
+/11             0           0     0     644     52008     `
+/38             0           0     0     644     49256     `
+/62             0           0     0     644     49208     `
+/84             0           0     0     644     55520     `
+/106            0           0     0     644     54328     `
+/126            0           0     0     644     255520    `
+/140            0           0     0     644     233248    `
+/158            0           0     0     644     250976    `
+/179            0           0     0     644     213408    `
+/198            0           0     0     644     179928    `
+/224            0           0     0     644     54096     `
+/244            0           0     0     644     65112     `
+/266            0           0     0     644     59560     `
+/286            0           0     0     644     115440    `
+/305            0           0     0     644     193200    `
+/322            0           0     0     644     190824    `

@@ -1,0 +1,1 @@
+cmd_drivers/input/touchscreen/lge/lgsic/built-in.a :=  rm -f drivers/input/touchscreen/lge/lgsic/built-in.a; llvm-ar rcSTPD drivers/input/touchscreen/lge/lgsic/built-in.a drivers/input/touchscreen/lge/lgsic/sw42902/built-in.a drivers/input/touchscreen/lge/lgsic/sw49107/built-in.a

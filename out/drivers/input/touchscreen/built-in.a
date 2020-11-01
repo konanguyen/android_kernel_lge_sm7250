@@ -1,0 +1,37 @@
+!<thin>
+//                                              428       `
+of_touchscreen.o/
+lge/touch_core.o/
+lge/touch_core_sysfs.o/
+lge/touch_common.o/
+lge/touch_i2c.o/
+lge/touch_spi.o/
+lge/touch_model.o/
+lge/touch_notify.o/
+lge/module/touch_module_builtIn.o/
+lge/touch_hwif.o/
+lge/touch_pen.o/
+lge/touch_dex.o/
+lge/lgsic/sw42902/touch_sw42902.o/
+lge/lgsic/sw42902/touch_sw42902_prd.o/
+lge/lgsic/sw42902/touch_sw42902_abt.o/
+lge/lgsic/sw49107/touch_sw49107.o/
+lge/lgsic/sw49107/touch_sw49107_prd.o/
+
+/0              0           0     0     644     139440    `
+/18             0           0     0     644     311248    `
+/36             0           0     0     644     347040    `
+/60             0           0     0     644     171264    `
+/80             0           0     0     644     187928    `
+/97             0           0     0     644     187400    `
+/114            0           0     0     644     179408    `
+/133            0           0     0     644     21408     `
+/153            0           0     0     644     221280    `
+/188            0           0     0     644     206024    `
+/206            0           0     0     644     226888    `
+/223            0           0     0     644     180864    `
+/240            0           0     0     644     556128    `
+/275            0           0     0     644     500240    `
+/314            0           0     0     644     287488    `
+/353            0           0     0     644     392552    `
+/388            0           0     0     644     349968    `

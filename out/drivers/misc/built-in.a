@@ -1,0 +1,12 @@
+!<thin>
+//                                              100       `
+hdcp_qseecom.o/
+msm_hdcp.o/
+qseecom.o/
+uid_sys_stats.o/
+fpr_FingerprintCard/fpc1020_platform_tee.o/
+/0              0           0     0     644     85384     `
+/16             0           0     0     644     143608    `
+/28             0           0     0     644     1217320   `
+/39             0           0     0     644     143480    `
+/56             0           0     0     644     182840    `

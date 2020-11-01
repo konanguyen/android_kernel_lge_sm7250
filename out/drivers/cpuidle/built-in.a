@@ -1,0 +1,20 @@
+!<thin>
+//                                              124       `
+cpuidle.o/
+driver.o/
+governor.o/
+sysfs.o/
+governors/menu.o/
+dt_idle_states.o/
+cpuidle-arm.o/
+lpm-levels.o/
+lpm-levels-of.o/
+/0              0           0     0     644     250880    `
+/11             0           0     0     644     83744     `
+/21             0           0     0     644     73144     `
+/33             0           0     0     644     77728     `
+/42             0           0     0     644     22912     `
+/60             0           0     0     644     56240     `
+/78             0           0     0     644     38536     `
+/93             0           0     0     644     416208    `
+/107            0           0     0     644     97048     `

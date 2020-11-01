@@ -1,0 +1,1 @@
+cmd_drivers/gud/TlcTui/built-in.a :=  rm -f drivers/gud/TlcTui/built-in.a; llvm-ar rcSTPD drivers/gud/TlcTui/built-in.a drivers/gud/TlcTui/main.o drivers/gud/TlcTui/tlcTui.o drivers/gud/TlcTui/tui-hal.o
