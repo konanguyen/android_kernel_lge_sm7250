@@ -2645,6 +2645,9 @@ handle_err:
 		goto retry;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6e7bfa046de8 (futex: Handle faults correctly for PI futexes)
 	/*
 	 * fault_in_user_writeable() failed so user state is immutable. At
 	 * best we can make the kernel state consistent but user state will
@@ -2958,8 +2961,11 @@ static int futex_lock_pi(u32 __user *uaddr, unsigned int flags,
 {
 	struct hrtimer_sleeper timeout, *to = NULL;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	struct futex_pi_state *pi_state = NULL;
+=======
+>>>>>>> 6e7bfa046de8 (futex: Handle faults correctly for PI futexes)
 	struct task_struct *exiting = NULL;
 >>>>>>> 7874eee0130a (futex: Prevent exit livelock)
 	struct rt_mutex_waiter rt_waiter;
@@ -3456,12 +3462,15 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
 			spin_lock(q.lock_ptr);
 			ret = fixup_pi_state_owner(uaddr2, &q, current);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 			if (ret < 0 && rt_mutex_owner(&q.pi_state->pi_mutex) == current) {
 				pi_state = q.pi_state;
 				get_pi_state(pi_state);
 			}
 >>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
+=======
+>>>>>>> 6e7bfa046de8 (futex: Handle faults correctly for PI futexes)
 			/*
 			 * Drop the reference to the pi state which
 			 * the requeue_pi() code acquired for us.
