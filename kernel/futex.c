@@ -2492,11 +2492,15 @@ retry:
 		if (__rt_mutex_futex_trylock(&pi_state->pi_mutex)) {
 			/* We got the lock. pi_state is correct. Tell caller. */
 <<<<<<< HEAD
+<<<<<<< HEAD
 			return 1;
 =======
 			ret = 1;
 			goto out_unlock;
 >>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
+=======
+			return 1;
+>>>>>>> a4649185a98e (futex: Simplify fixup_pi_state_owner())
 		}
 
 		/*
@@ -2524,11 +2528,15 @@ retry:
 			 * already fixed up. Nothing to do.
 			 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 			return 1;
 =======
 			ret = 1;
 			goto out_unlock;
 >>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
+=======
+			return 1;
+>>>>>>> a4649185a98e (futex: Simplify fixup_pi_state_owner())
 		}
 		newowner = argowner;
 	}
@@ -2560,6 +2568,7 @@ retry:
 	 */
 	pi_state_update_owner(pi_state, newowner);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -2572,6 +2581,8 @@ retry:
 =======
 >>>>>>> 0e1501f7b1ee (futex: Provide and use pi_state_update_owner())
 	raw_spin_unlock_irq(&pi_state->pi_mutex.wait_lock);
+=======
+>>>>>>> a4649185a98e (futex: Simplify fixup_pi_state_owner())
 
 >>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
 	return argowner == current;
@@ -2615,6 +2626,7 @@ handle_err:
 	 * Check if someone else fixed it for us:
 	 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if (pi_state->owner != oldowner)
 		return argowner == current;
 =======
@@ -2623,11 +2635,16 @@ handle_err:
 		goto out_unlock;
 	}
 >>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
+=======
+	if (pi_state->owner != oldowner)
+		return argowner == current;
+>>>>>>> a4649185a98e (futex: Simplify fixup_pi_state_owner())
 
 	/* Retry if err was -EAGAIN or the fault in succeeded */
 	if (!err)
 		goto retry;
 
+<<<<<<< HEAD
 	/*
 	 * fault_in_user_writeable() failed so user state is immutable. At
 	 * best we can make the kernel state consistent but user state will
@@ -2649,6 +2666,11 @@ handle_err:
 	return err;
 }
 
+=======
+	return err;
+}
+
+>>>>>>> a4649185a98e (futex: Simplify fixup_pi_state_owner())
 static int fixup_pi_state_owner(u32 __user *uaddr, struct futex_q *q,
 				struct task_struct *argowner)
 {
