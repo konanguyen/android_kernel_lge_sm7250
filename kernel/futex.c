@@ -2565,6 +2565,7 @@ retry:
 	 * itself.
 	 */
 	pi_state_update_owner(pi_state, newowner);
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -2574,6 +2575,8 @@ retry:
 	WARN_ON(!list_empty(&pi_state->list));
 	list_add(&pi_state->list, &newowner->pi_state_list);
 	raw_spin_unlock(&newowner->pi_lock);
+=======
+>>>>>>> 0e1501f7b1ee (futex: Provide and use pi_state_update_owner())
 	raw_spin_unlock_irq(&pi_state->pi_mutex.wait_lock);
 
 >>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
