@@ -2497,7 +2497,12 @@ retry:
 
 		if (__rt_mutex_futex_trylock(&pi_state->pi_mutex)) {
 			/* We got the lock. pi_state is correct. Tell caller. */
+<<<<<<< HEAD
 			return 1;
+=======
+			ret = 1;
+			goto out_unlock;
+>>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
 		}
 
 		/*
@@ -2524,7 +2529,12 @@ retry:
 			 * We raced against a concurrent self; things are
 			 * already fixed up. Nothing to do.
 			 */
+<<<<<<< HEAD
 			return 1;
+=======
+			ret = 1;
+			goto out_unlock;
+>>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
 		}
 		newowner = argowner;
 	}
@@ -2556,6 +2566,17 @@ retry:
 	 */
 	pi_state_update_owner(pi_state, newowner);
 
+<<<<<<< HEAD
+=======
+	pi_state->owner = newowner;
+
+	raw_spin_lock(&newowner->pi_lock);
+	WARN_ON(!list_empty(&pi_state->list));
+	list_add(&pi_state->list, &newowner->pi_state_list);
+	raw_spin_unlock(&newowner->pi_lock);
+	raw_spin_unlock_irq(&pi_state->pi_mutex.wait_lock);
+
+>>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
 	return argowner == current;
 
 	/*
@@ -2596,8 +2617,15 @@ handle_err:
 	/*
 	 * Check if someone else fixed it for us:
 	 */
+<<<<<<< HEAD
 	if (pi_state->owner != oldowner)
 		return argowner == current;
+=======
+	if (pi_state->owner != oldowner) {
+		ret = argowner == current;
+		goto out_unlock;
+	}
+>>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
 
 	/* Retry if err was -EAGAIN or the fault in succeeded */
 	if (!err)
@@ -3408,6 +3436,13 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
 		if (q.pi_state && (q.pi_state->owner != current)) {
 			spin_lock(q.lock_ptr);
 			ret = fixup_pi_state_owner(uaddr2, &q, current);
+<<<<<<< HEAD
+=======
+			if (ret < 0 && rt_mutex_owner(&q.pi_state->pi_mutex) == current) {
+				pi_state = q.pi_state;
+				get_pi_state(pi_state);
+			}
+>>>>>>> 72f38fffa475 (futex: Ensure the correct return value from futex_lock_pi())
 			/*
 			 * Drop the reference to the pi state which
 			 * the requeue_pi() code acquired for us.
