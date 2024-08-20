@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&dsi_sw43103_mp_fhd_dsc_cmd  {
+    lge,panel-pins = <&tlmm 110 0>, <&tlmm 26 0>; // vddio(hdk:share with touch), vpnl, vdd
+    lge,panel-on-pin-seq = <0 1 1>, <1 1 1>;
+    lge,panel-off-pin-seq = <1 0 10>, <0 0 0>;
+};
+
+&dsi_sw43103_dv_half_fhd_dsc_cmd  {
+    qcom,panel-sec-supply-entries = <&dsi_panel_pwr_supply>;
+    lge,panel-pins =<&tlmm 145 0>; // vddio
+    lge,panel-on-pin-seq = <0 1 0>;
+    lge,panel-off-pin-seq = <0 0 0>;
+};
+
+&sde_dsi1 {
+    /delete-property/ ext_vdd-supply;
+};

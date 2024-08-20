@@ -1,0 +1,43 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&soc {
+	gpio_keys {
+		compatible = "gpio-keys";
+		label = "gpio-keys";
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&key_vol_up_default &swivel_start_gpio_default &swivel_end_gpio_default>;
+		vol_up {
+			label = "volume_up";
+			gpios = <&pm8150l_gpios 5 GPIO_ACTIVE_LOW>;
+			linux,input-type = <1>;
+			linux,code = <KEY_VOLUMEUP>;
+			gpio-key,wakeup;
+			debounce-interval = <15>;
+			linux,can-disable;
+		};
+
+		swivel_start {
+			label = "swivel_start";
+			gpios = <&tlmm 138 GPIO_ACTIVE_LOW>;
+			linux,input-type = <5>; // SWITCH type
+			linux,code = <0>; // LID
+			gpio-key,wakeup;
+			debounce-interval = <15>;
+			linux,can-disable;
+		};
+
+		swivel_end {
+			label = "swivel_end";
+			gpios = <&tlmm 139 GPIO_ACTIVE_LOW>;
+			linux,input-type = <5>; // SWITCH type
+			linux,code = <0>; // LID
+			gpio-key,wakeup;
+			debounce-interval = <15>;
+			linux,can-disable;
+		};
+	};
+};

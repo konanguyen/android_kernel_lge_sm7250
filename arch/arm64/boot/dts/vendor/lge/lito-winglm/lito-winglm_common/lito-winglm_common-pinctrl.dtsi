@@ -1,0 +1,239 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&tlmm {
+	lge,access-denied-gpios = <59 60 61 62 66 67>;
+
+	pmx_ts_reset {
+		ts_reset_active: ts_reset_active {
+			mux {
+				pins = "gpio8";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio8";
+				drive-strength = <6>;
+				bias-pull-up;
+			};
+		};
+
+		ts_reset_suspend: ts_reset_suspend {
+			mux {
+				pins = "gpio8";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio8";
+				drive-strength = <6>;
+				bias-pull-down;
+			};
+		};
+	};
+
+        pmx_sub_ts_reset {
+		ts_sub_reset_active: ts_sub_reset_active {
+			mux {
+				pins = "gpio44";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio44";
+				drive-strength = <6>;
+				bias-pull-up;
+			};
+		};
+
+		ts_sub_reset_suspend: ts_sub_reset_suspend {
+			mux {
+				pins = "gpio44";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio44";
+				drive-strength = <6>;
+				bias-pull-down;
+			};
+                };
+	};
+
+	pmx_ts_int {
+		ts_int_active: ts_int_active {
+			mux {
+				pins = "gpio9";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio9";
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+		};
+
+		ts_int_suspend: ts_int_suspend {
+			mux {
+				pins = "gpio9";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio9";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+	};
+
+	pmx_sub_ts_int {
+		ts_sub_int_active: ts_sub_int_active {
+			mux {
+				pins = "gpio45";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio45";
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+		};
+
+		ts_sub_int_suspend: ts_sub_int_suspend {
+			mux {
+				pins = "gpio45";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio45";
+				drive-strength = <2>;
+				bias-disable;
+			};
+                };
+	};
+	sde_dp_aux_active:sde_dp_aux_active {
+		mux {
+			pins = "gpio55", "gpio56";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio55", "gpio56";
+			bias-disable = <0>;
+			driver-strength = <8>;
+		};
+	};
+
+	sde_dp_aux_suspend:sde_dp_aux_suspend {
+		mux {
+			pins = "gpio55", "gpio56";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio55", "gpio56";
+			bias-pull-down;
+			driver-strength = <8>;
+		};
+	};
+
+	swivel_start_gpio_default: swivel_start_gpio_default {
+		mux {
+			pins = "gpio138";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio138";
+			input-enable;
+			bias-pull-up;
+		};
+	};
+
+	swivel_end_gpio_default: swivel_end_gpio_default {
+		mux {
+			pins = "gpio139";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio139";
+			input-enable;
+			bias-pull-up;
+		};
+	};
+
+	almf04_int_pin {
+		almf04_int_active: almf04_int_active {
+		       mux {
+			   pins = "gpio5";
+			   function = "gpio";
+		       };
+		       config {
+			   pins = "gpio5";
+			   drive-strength = <2>;   /* 2 MA */
+			   bias-pull-up;           /* PULL UP*/
+		       };
+		   };
+
+		almf04_int_suspend: almf04_int_suspend {
+			mux {
+			    pins = "gpio5";
+			    function = "gpio";
+			};
+			config {
+			    pins = "gpio5";
+			    drive-strength = <2>;   /* 2 MA */
+			    bias-pull-up;           /* PULL UP */
+			};
+		    };
+	};
+
+        almf04_en_pin {
+                almf04_en_active: almf04_en_active {
+                    mux {
+                        pins = "gpio21";
+                        function = "gpio";
+                    };
+                    config {
+                        pins = "gpio21";
+                        drive-strength = <2>;   /* 2 MA */
+                    };
+                };
+                almf04_en_suspend: almf04_en_suspend {
+                    mux {
+                        pins = "gpio21";
+                        function = "gpio";
+                    };
+                    config {
+                        pins = "gpio21";
+                        drive-strength = <2>;   /* 2 MA */
+                    };
+                };
+        };
+
+        wcd938x_reset_active: wcd938x_reset_active {
+            mux {
+                pins = "gpio22";
+                function = "gpio";
+            };
+
+            config {
+                pins = "gpio22";
+                drive-strength = <16>;
+                output-high;
+            };
+        };
+
+        wcd938x_reset_sleep: wcd938x_reset_sleep {
+            mux {
+                pins = "gpio22";
+                function = "gpio";
+            };
+
+            config {
+                pins = "gpio22";
+                drive-strength = <16>;
+                bias-disable;
+                output-low;
+            };
+        };
+
+};
+

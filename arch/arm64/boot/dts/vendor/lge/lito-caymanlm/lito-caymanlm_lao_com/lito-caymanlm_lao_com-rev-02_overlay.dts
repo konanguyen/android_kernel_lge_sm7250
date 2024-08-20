@@ -1,0 +1,59 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "lito-caymanlm_lao_com.dtsi"
+#include "lito-caymanlm_lao_com-pm.dtsi"
+#include "../lito-camera/lito-caymanlm-camera_rev-0.2.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-fingerprint_rev0.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-usb_rev-02.dtsi"
+#include "lito-caymanlm_lao_com-sound.dtsi"
+
+/ {
+	model = "LG Electronics, Caymanlm, HW Rev 0.2";
+	compatible = "qcom,lito-mtp", "qcom,lito", "qcom,mtp";
+	qcom,msm-id = <400 0x10000>;
+	qcom,board-id = <0x00050008 0>;
+};
+
+&qupv3_se9_i2c {
+	status = "disabled";
+};
+
+&qupv3_se1_i2c {
+	status = "disabled";
+};
+
+&lge_usb_ds3 {
+	lge,use-primary-usb;
+};
+
+&fpga_mgr0 {
+        reset-gpio = <&tlmm 0 GPIO_ACTIVE_LOW>;
+};
+
+&usb1 {
+        vdda33-supply = <&pm8150a_bob>;
+        ldo1_en-gpio = <&tlmm 1 GPIO_ACTIVE_HIGH>;
+        ldo2_en-gpio = <&tlmm 2 GPIO_ACTIVE_HIGH>;
+};
+
+&lattice0_reset_active {
+        mux {
+                pins = "gpio0";
+        };
+
+        config {
+                pins = "gpio0";
+        };
+};
+
+&sls11hc0_ldo_en_active {
+        mux {
+                pins = "gpio1", "gpio2";
+        };
+
+        config {
+                pins = "gpio1", "gpio2";
+        };
+};

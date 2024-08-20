@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "../lito-caymanlm_common/lito-caymanlm_common-touch.dtsi"
+
+&qupv3_se7_i2c {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	status = "ok";
+
+	sw42902@28 {
+		status = "ok";
+	};
+
+	sw42000@28 {
+		status = "disabled";
+	};
+
+	sw49107@29 {
+		status = "disabled";
+	};
+};
+

@@ -1,0 +1,92 @@
+/* SPDX-License-Identifier: GPL-2.0-only */
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "../lito-winglm_common/lito-winglm_common-sound.dtsi"
+#include "../lito-winglm_common/lito-winglm_common-sound-tfa9878-rev-0.dtsi"
+#include "../lito-winglm_common/lito-winglm_common-sound-fmradio.dtsi"
+#include "../lito-winglm_common/lito-winglm_common-sound-vibrator.dtsi"
+
+
+&lito_snd {
+	status = "ok";
+	qcom,msm-mi2s-master = <1>, <1>, <1>, <1>, <1>, <1>;
+	asoc-codec  = <&stub_codec>, <&bolero>, <&ext_disp_audio_codec>,
+				  <&tfa98xx_spk>;
+	asoc-codec-names = "msm-stub-codec.1", "bolero_codec",
+			   "msm-ext-disp-audio-codec-rx",
+			   "tfa98xx-codec.0035";
+	qcom,ext-disp-audio-rx = <1>;
+	qcom,audio-routing =
+		"AMIC1", "MIC BIAS1",
+		"MIC BIAS1", "Analog Mic1",
+		"AMIC2", "MIC BIAS2",
+		"MIC BIAS2", "Analog Mic2",
+		"AMIC3", "MIC BIAS3",
+		"MIC BIAS3", "Analog Mic3",
+		"AMIC4", "MIC BIAS3",
+		"MIC BIAS3", "Analog Mic4",
+		"AMIC5", "MIC BIAS4",
+		"MIC BIAS4", "Analog Mic5",
+		"IN1_HPHL", "HPHL_OUT",
+		"IN2_HPHR", "HPHR_OUT",
+		"IN3_AUX", "AUX_OUT",
+		"TX SWR_ADC0", "ADC1_OUTPUT",
+		"TX SWR_ADC1", "ADC2_OUTPUT",
+		"TX SWR_ADC2", "ADC3_OUTPUT",
+		"TX SWR_ADC3", "ADC4_OUTPUT",
+		"RX_TX DEC0_INP", "TX DEC0 MUX",
+		"RX_TX DEC1_INP", "TX DEC1 MUX",
+		"RX_TX DEC2_INP", "TX DEC2 MUX",
+		"RX_TX DEC3_INP", "TX DEC3 MUX",
+		"VA_AIF1 CAP", "VA_SWR_CLK",
+		"VA_AIF2 CAP", "VA_SWR_CLK",
+		"VA_AIF3 CAP", "VA_SWR_CLK",
+		"VA SWR_ADC0", "ADC1_OUTPUT",
+		"VA SWR_ADC1", "ADC2_OUTPUT",
+		"VA SWR_ADC2", "ADC3_OUTPUT",
+		"VA SWR_ADC3", "ADC4_OUTPUT";
+
+	qcom,msm-mbhc-gnd-swh = <0>;
+	qcom,msm-mbhc-moist-cfg = <0>, <0>, <2>;
+	qcom,msm-mbhc-hphl-swh = <0>;
+	qcom,wsa-max-devs = <0>;
+
+    lge,fmradio-lna-enable-gpio = <&tlmm 74 0x00>;
+    lna-supply = <&pm8150_s4>;
+};
+
+/delete-node/ &wcd938x_rst_gpio;
+
+&soc {
+	wcd938x_rst_gpio_wing: msm_cdc_pinctrl@22 {
+		compatible = "qcom,msm-cdc-pinctrl";
+		pinctrl-names = "aud_active", "aud_sleep";
+		pinctrl-0 = <&wcd938x_reset_active>;
+		pinctrl-1 = <&wcd938x_reset_sleep>;
+	};
+};
+
+&wcd938x_codec {
+	qcom,wcd-rst-gpio-node = <&wcd938x_rst_gpio_wing>;
+};
+
+&tx_swr_gpios {
+	pinctrl-names = "aud_active", "aud_sleep";
+	pinctrl-0 = <&tx_swr_clk_active &tx_swr_data1_active
+		&tx_swr_data2_active &tx_swr_data3_active>;
+	pinctrl-1 = <&tx_swr_clk_sleep &tx_swr_data1_sleep
+		&tx_swr_data2_sleep &tx_swr_data3_sleep>;
+	qcom,tlmm-gpio = <115 116 117 129>;
+};
+
+&qupv3_se9_i2c{
+	dw7800@59 {
+		status = "disabled";
+	};
+
+	dw7914@59 {
+		status = "ok";
+	};
+};

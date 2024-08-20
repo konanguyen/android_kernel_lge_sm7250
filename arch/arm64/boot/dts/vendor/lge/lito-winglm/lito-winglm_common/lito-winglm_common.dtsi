@@ -1,0 +1,63 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&reserved_memory {
+    ramoops_region@c0000000 {
+        compatible = "removed-dma-pool";
+        no-map;
+        reg = <0x0 0xc0000000 0x0 0x300000>;
+    };
+};
+
+&qtee_apps_mem{
+	reg = <0x0 0x81e00000 0x0 0x3000000>;
+};
+
+&qcom_seecom {
+		reg = <0x82200000 0x2c00000>;
+};
+
+&qcom_smcinvoke {
+		reg = <0x82200000 0x2c00000>;
+};
+
+&soc {
+    ramoops {
+        compatible = "ramoops";
+        reg = <0xc0000000 0x280000>;
+        mem-size = <0x280000>;
+        mem-address = <0xc0000000>;
+        record-size = <4096>;
+        console-size = <0x40000>;
+        ftrace-size = <0x40000>;
+        pmsg-size = <0x200000>;
+        ecc-size = <0>;
+    };
+
+    bootlog {
+        compatible = "bootlog";
+    };
+
+    mcd {
+        compatible = "qcom,mcd";
+        qcom,ce-hw-instance = <0>;
+        qcom,ce-device = <0>;
+        interrupts = <0 472 IRQ_TYPE_EDGE_RISING>;
+        interrupt-names = "mcd_irq";
+    };
+
+    wdog: qcom,wdt@17c10000 {
+        qcom,bark-time = <16000>;
+    };
+
+};
+
+&cont_splash_memory {
+    reg = <0x0 0xA0000000 0x0 0x01200000>;
+};
+
+&disp_rdump_memory {
+    reg = <0x0 0xA0000000 0x0 0x1200000>;
+};

@@ -1,0 +1,31 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "lito-winglm_lao_com.dtsi"
+#include "lito-winglm_lao_com-pm.dtsi"
+#include "../lito-camera/lito-winglm-camera_rev-0.1.dtsi"
+#include "../lito-winglm_common/lito-winglm_common-fingerprint.dtsi"
+#include "lito-winglm_lao_com-usb.dtsi"
+#include "lito-winglm_lao_com-sound.dtsi"
+#include "../lito-winglm_common/lito-winglm_common-panel_rev-0.dtsi"
+#include "lito-winglm_lao_com-storage-rev-0.dtsi"
+
+/ {
+	model = "LG Electronics, Winglm, HW Rev0";
+	compatible = "qcom,lito-mtp", "qcom,lito", "qcom,mtp";
+	qcom,msm-id = <400 0x10000>;
+	qcom,board-id = <0x00030008 0>;
+};
+
+&qupv3_se1_i2c {
+	status = "disabled";
+};
+
+&soc {
+	lge-veneer-psy {
+		veneer-workaround {
+			/delete-property/ lge,enable-concurrency-otg-wireless;
+		};
+	};
+};

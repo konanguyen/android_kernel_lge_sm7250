@@ -1,0 +1,163 @@
+/* SPDX-License-Identifier: GPL-2.0-only */
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+/*
+ * Copyright (c) 2018, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+&tlmm {
+
+	pri_mi2s_sck {
+		pri_mi2s_sck_sleep: pri_mi2s_sck_sleep {
+			mux {
+				pins = "gpio49";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio49";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+				input-enable;
+			};
+		};
+
+		pri_mi2s_sck_active: pri_mi2s_sck_active {
+			mux {
+				pins = "gpio49";
+				function = "pri_mi2s";
+			};
+
+			config {
+				pins = "gpio49";
+				drive-strength = <8>;   /* 8 mA */
+				bias-disable;           /* NO PULL */
+			};
+		};
+	};
+
+	pri_mi2s_ws {
+		pri_mi2s_ws_sleep: pri_mi2s_ws_sleep {
+			mux {
+				pins = "gpio50";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio50";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+				input-enable;
+			};
+		};
+
+		pri_mi2s_ws_active: pri_mi2s_ws_active {
+			mux {
+				pins = "gpio50";
+				function = "pri_mi2s_ws";
+			};
+
+			config {
+				pins = "gpio50";
+				drive-strength = <8>;   /* 8 mA */
+				bias-disable;           /* NO PULL */
+			};
+		};
+	};
+
+	pri_mi2s_sd0 {
+		pri_mi2s_sd0_sleep: pri_mi2s_sd0_sleep {
+			mux {
+				pins = "gpio51";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio51";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+				input-enable;
+			};
+		};
+
+		pri_mi2s_sd0_active: pri_mi2s_sd0_active {
+			mux {
+				pins = "gpio51";
+				function = "pri_mi2s";
+			};
+
+			config {
+				pins = "gpio51";
+				drive-strength = <8>;   /* 8 mA */
+				bias-disable;           /* NO PULL */
+			};
+		};
+	};
+	pri_mi2s_sd1 {
+		pri_mi2s_sd1_sleep: pri_mi2s_sd1_sleep {
+			mux {
+				pins = "gpio52";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio52";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+				input-enable;
+			};
+		};
+
+		pri_mi2s_sd1_active: pri_mi2s_sd1_active {
+			mux {
+				pins = "gpio52";
+				function = "pri_mi2s";
+			};
+
+			config {
+				pins = "gpio52";
+				drive-strength = <8>;   /* 8 mA */
+				bias-disable;           /* NO PULL */
+			};
+		};
+	};
+};
+
+&dai_mi2s0 {
+	qcom,msm-mi2s-rx-lines = <2>; /* SD1 used as output */
+	qcom,msm-mi2s-tx-lines = <1>; /* SD0 used as input */
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&pri_mi2s_sck_active &pri_mi2s_ws_active
+			&pri_mi2s_sd0_active &pri_mi2s_sd1_active>;
+	pinctrl-1 = <&pri_mi2s_sck_sleep &pri_mi2s_ws_sleep
+			&pri_mi2s_sd0_sleep &pri_mi2s_sd1_sleep>;
+};
+
+&qupv3_se4_i2c { /* QUPV3 SE4  */
+	status = "ok";
+	tfa98xx_spk1: tfa98xx@34 {
+		compatible = "nxp,tfa98xx";
+		status = "ok";
+		reg = <0x34>;
+		reset-gpio = <&tlmm 91 0x0>;
+		reset-polarity = <0>;
+
+		nxp,firmware-name = "Tfa98xx.cnt";
+	};
+	tfa98xx_spk2: tfa98xx@35 {
+		compatible = "nxp,tfa98xx";
+		status = "ok";
+		reg = <0x35>;
+		nxp,firmware-name = "Tfa98xx.cnt";
+	};
+};

@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include <dt-bindings/gpio/gpio.h>
+#include "../../../qcom/lito-audio-overlay.dtsi"
+#include "../../../qcom/lito-pmic-overlay.dtsi"
+#include "../../../qcom/lito-sde-display.dtsi"
+#include "../../../qcom/lito-thermal-overlay.dtsi"
+
+#include "../lito-caymanlm_common/lito-caymanlm_common.dtsi"
+#include "lito-caymanlm_dcm_jp-pinctrl.dtsi"
+#include "lito-caymanlm_dcm_jp-panel.dtsi"
+#include "lito-caymanlm_dcm_jp-hallic.dtsi"
+#include "lito-caymanlm_dcm_jp-connectivity.dtsi"
+#include "lito-caymanlm_dcm_jp-nfc.dtsi"
+#include "lito-caymanlm_dcm_jp-mme.dtsi"
+#include "lito-caymanlm_dcm_jp-tdmb.dtsi"
+#include "lito-caymanlm_dcm_jp-touch.dtsi"
+#include "lito-caymanlm_dcm_jp-sar.dtsi"
+#include "lito-caymanlm_dcm_jp-storage.dtsi"
+#include "lito-caymanlm_dcm_jp-misc.dtsi"

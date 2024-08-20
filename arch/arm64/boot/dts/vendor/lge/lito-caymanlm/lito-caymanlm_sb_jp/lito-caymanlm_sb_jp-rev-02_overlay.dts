@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "lito-caymanlm_sb_jp.dtsi"
+#include "lito-caymanlm_sb_jp-pm.dtsi"
+#include "../lito-camera/lito-caymanlm-camera_rev-0.2.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-fingerprint_rev0.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-usb_rev-02.dtsi"
+#include "lito-caymanlm_sb_jp-sound.dtsi"
+
+/ {
+	model = "LG Electronics, Caymanlm, HW Rev 0.2";
+	compatible = "qcom,lito-mtp", "qcom,lito", "qcom,mtp";
+	qcom,msm-id = <400 0x10000>;
+	qcom,board-id = <0x00050008 0>;
+};
+
+&qupv3_se9_i2c {
+  status = "disabled";
+};

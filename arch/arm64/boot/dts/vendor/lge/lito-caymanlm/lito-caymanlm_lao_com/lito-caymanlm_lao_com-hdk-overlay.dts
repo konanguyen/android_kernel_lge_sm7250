@@ -1,0 +1,96 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "lito-caymanlm_lao_com.dtsi"
+#include "lito-caymanlm_lao_com-pm_hdk.dtsi"
+#include "../lito-camera/lito-caymanlm-camera_hdk.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-fingerprint_hdk.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-usb_hdk.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-coverhallic_hdk.dtsi"
+#include "lito-caymanlm_lao_com-sound.dtsi"
+
+/ {
+	model = "LG Electronics, Caymanlm, HDK";
+	compatible = "qcom,lito-mtp", "qcom,lito", "qcom,mtp";
+	qcom,msm-id = <400 0x10000>;
+	qcom,board-id = <8 0>;
+};
+
+&lge_wmc {
+	lge-mme,gpio_sleep_n = <&tlmm 108 0>;
+	lge-mme,gpio_ph = <&tlmm 109 0>;
+	lge-mme,gpio_en = <&tlmm 112 0>;
+};
+
+&soc {
+	gpio_keys {
+		pinctrl-0 = <&key_vol_up_default>;
+		hot1_key {
+			status = "disabled";
+		};
+	};
+};
+
+&fpga_mgr0 {
+	interrupts = <126 IRQ_TYPE_LEVEL_HIGH>;
+	reset-gpio = <&tlmm 129 GPIO_ACTIVE_LOW>;
+};
+
+&usb1 {
+	vdda33-supply = <&pm8150a_bob>;
+	ldo1_en-gpio = <&tlmm 132 GPIO_ACTIVE_HIGH>;
+	ldo2_en-gpio = <&tlmm 133 GPIO_ACTIVE_HIGH>;
+	reset-gpio = <&tlmm 125 GPIO_ACTIVE_LOW>;
+	ds_sw_sel-gpio = <&tlmm 66 GPIO_ACTIVE_HIGH>;
+};
+
+&lattice0_int_active {
+	mux {
+		pins = "gpio126";
+	};
+
+	config {
+		pins = "gpio126";
+	};
+};
+
+&lattice0_reset_active {
+	mux {
+		pins = "gpio129";
+	};
+
+	config {
+		pins = "gpio129";
+	};
+};
+
+&sls11hc0_ldo_en_active {
+	mux {
+		pins = "gpio132", "gpio133";
+	};
+
+	config {
+		pins = "gpio132", "gpio133";
+	};
+};
+
+&sls11hc0_reset_active {
+	mux {
+		pins = "gpio125";
+	};
+
+	config {
+		pins = "gpio125";
+	};
+};
+
+&sls11hc0_ds_sw_sel_active {
+	mux {
+		pins = "gpio66";
+	};
+
+	config {
+		pins = "gpio66";
+	};
+};

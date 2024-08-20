@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "../lito-caymanlm_common/lito-caymanlm_common-touch.dtsi"
+
+&qupv3_se7_i2c {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	status = "ok";
+
+	sw42902@28 {
+		status = "ok";
+	};
+
+	sw42000@28 {
+		status = "disabled";
+		pinctrl-names = "touch_pin_active", "touch_pin_sleep", "touch_pm8150l_gpio_default";
+		pinctrl-0 = <&ts_reset_active &ts_int_active>;
+		pinctrl-1 = <&ts_reset_suspend &ts_int_suspend>;
+		pinctrl-2 = <&touch_pm8150l_gpio_default>;
+	};
+
+	sw49107@29 {
+		status = "ok";
+	};
+};
+

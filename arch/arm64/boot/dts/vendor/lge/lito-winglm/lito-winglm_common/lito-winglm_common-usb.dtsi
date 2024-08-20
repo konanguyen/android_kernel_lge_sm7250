@@ -1,0 +1,57 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+
+&pm7250b_pdphy {
+    lge,sbu-sel-gpio = <&tlmm 112 0>;
+    lge,uart-sbu-sel-gpio = <&tlmm 0>;
+    lge,uart-edp-oe-gpio = <&tlmm 93 0>;
+};
+
+/*
+ * LGE USB Type-C CC/SBU Protection Switch driver
+ */
+
+&soc {
+    lge_sbu_switch: lge_sbu_switch {
+        compatible = "lge,lge_sbu_switch";
+
+        lge,sel-gpio = <&tlmm 112 0>;
+        lge,uart-sbu-sel-gpio = <&tlmm 113 0>;
+        lge,uart-edp-oe-gpio = <&tlmm 93 0>;
+        lge,reverse-sbu-switch;
+        /* lge,ovp-gpio */
+
+        pinctrl-names = "default";
+        pinctrl-0 = <&lge_sbu_switch_sel_active /* &lge_sbu_switch_ovp_active */>;
+	};
+};
+
+&tlmm {
+    lge_sbu_switch_sel_active: lge_sbu_switch_sel_active {
+        mux {
+            pins = "gpio112";
+            function = "gpio";
+        };
+        config {
+            pins = "gpio112";
+            bias-disable;
+        };
+    };
+};
+
+/*
+ * LGE USB UART debugger driver
+ */
+&soc {
+    lge_usb_debugger: lge_usb_debugger {
+        compatible = "lge,usb_debugger";
+    };
+};
+
+&usb2_phy0 {
+    qcom,hsusb-phy-tune = <0xE1 0x0F 0x2E 0x03>;
+    qcom,hsusb-phy-tune-host = <0x07 0x08 0x2E 0x03>;
+};

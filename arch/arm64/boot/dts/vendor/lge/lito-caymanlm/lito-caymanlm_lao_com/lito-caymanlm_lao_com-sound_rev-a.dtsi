@@ -1,0 +1,79 @@
+/* SPDX-License-Identifier: GPL-2.0-only */
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "../lito-caymanlm_common/lito-caymanlm_common-sound.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-sound-tfa9878.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-sound-es9218.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-sound-fmradio.dtsi"
+#include "../lito-caymanlm_common/lito-caymanlm_common-sound-vibrator.dtsi"
+
+
+&lito_snd {
+	status = "ok";
+	qcom,msm-mi2s-master = <1>, <1>, <1>, <1>, <1>, <1>;
+	asoc-codec  = <&stub_codec>, <&bolero>, <&ext_disp_audio_codec>,
+				  <&tfa98xx_spk1>, <&tfa98xx_spk2>;
+	asoc-codec-names = "msm-stub-codec.1", "bolero_codec",
+			   "msm-ext-disp-audio-codec-rx",
+			   "tfa98xx-codec.0034", "tfa98xx-codec.0035";
+	qcom,ext-disp-audio-rx = <1>;
+	qcom,audio-routing =
+		"AMIC1", "MIC BIAS1",
+		"MIC BIAS1", "Analog Mic1",
+		"AMIC2", "MIC BIAS2",
+		"MIC BIAS2", "Analog Mic2",
+		"AMIC3", "MIC BIAS3",
+		"MIC BIAS3", "Analog Mic3",
+		"AMIC4", "MIC BIAS3",
+		"MIC BIAS3", "Analog Mic4",
+		"AMIC5", "MIC BIAS4",
+		"MIC BIAS4", "Analog Mic5",
+		"IN1_HPHL", "HPHL_OUT",
+		"IN2_HPHR", "HPHR_OUT",
+		"IN3_AUX", "AUX_OUT",
+		"TX SWR_ADC0", "ADC1_OUTPUT",
+		"TX SWR_ADC1", "ADC2_OUTPUT",
+		"TX SWR_ADC2", "ADC3_OUTPUT",
+		"TX SWR_ADC3", "ADC4_OUTPUT",
+		"RX_TX DEC0_INP", "TX DEC0 MUX",
+		"RX_TX DEC1_INP", "TX DEC1 MUX",
+		"RX_TX DEC2_INP", "TX DEC2 MUX",
+		"RX_TX DEC3_INP", "TX DEC3 MUX",
+		"VA_AIF1 CAP", "VA_SWR_CLK",
+		"VA_AIF2 CAP", "VA_SWR_CLK",
+		"VA_AIF3 CAP", "VA_SWR_CLK",
+		"VA SWR_ADC0", "ADC1_OUTPUT",
+		"VA SWR_ADC1", "ADC2_OUTPUT",
+		"VA SWR_ADC2", "ADC3_OUTPUT",
+		"VA SWR_ADC3", "ADC4_OUTPUT";
+
+	qcom,msm-mbhc-gnd-swh = <0>;
+	qcom,msm-mbhc-moist-cfg = <0>, <0>, <2>;
+	qcom,wsa-max-devs = <0>;
+
+	lge,fmradio-lna-enable-gpio = <&tlmm 74 0x00>;
+	lna-supply = <&pm8150_s4>;
+	dac,power-gpio = <&pm8150_gpios 9 0x0>;
+	dac,hph-sw = <&tlmm 139 0x0>;
+	dac,reset-gpio = <&tlmm 138 0x0>;
+
+	pinctrl-names = "default";
+	pinctrl-0 = <&es9218_power_default>,<&es9218_hph_sw_default>,<&es9218_reset_default>;
+};
+
+&qupv3_se4_i2c{ /* QUPV3 SE9  */
+        es9218-codec@48{
+                status = "disabled";
+        };
+};
+
+&tx_swr_gpios {
+	pinctrl-names = "aud_active", "aud_sleep";
+	pinctrl-0 = <&tx_swr_clk_active &tx_swr_data1_active
+		&tx_swr_data2_active &tx_swr_data3_active>;
+	pinctrl-1 = <&tx_swr_clk_sleep &tx_swr_data1_sleep
+		&tx_swr_data2_sleep &tx_swr_data3_sleep>;
+	qcom,tlmm-gpio = <115 116 117 129>;
+};
