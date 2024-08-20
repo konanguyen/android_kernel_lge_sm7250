@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "../lito-victorialm_common/lito-victorialm_common-nfc.dtsi"
+
+&qupv3_se11_i2c {
+    status = "ok";
+    qcom,clk-freq-out = <1000000>;
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    pn547@28 {
+        compatible = "nxp,pn547";
+        reg = <0x28>;
+        status = "ok";
+        nxp,gpio_sda = <&tlmm 108 0x00>;
+        nxp,gpio_scl = <&tlmm 109 0x00>;
+        nxp,gpio_ven = <&tlmm 12 0x00>;
+        nxp,gpio_mode = <&tlmm 46 0x00>;
+        nxp,gpio_irq = <&tlmm 34 0x00>;
+        nxp,i2c-pull-up = <1>;
+        qcom,clk-src = "BBCLK2";
+        interrupt-parent = <&tlmm>;
+        interrupts = <34 0>;
+        interrupt-names = "nfc_irq";
+    };
+};
+
+// spi
+&qupv3_se1_spi {
+    status = "ok";
+
+    p73@0 {
+        compatible = "nxp,p73";
+        reg = <0>;
+        status = "ok";
+        spi-max-frequency = <50000000>;
+    };
+};
+

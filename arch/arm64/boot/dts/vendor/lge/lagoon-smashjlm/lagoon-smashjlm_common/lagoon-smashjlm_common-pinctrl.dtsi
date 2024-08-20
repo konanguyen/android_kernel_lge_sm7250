@@ -1,0 +1,123 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&tlmm {
+	lge_pmx_ts_reset {
+		lge_ts_reset_active: ts_reset_active {
+			mux {
+				pins = "gpio21";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio21";
+				drive-strength = <8>;
+				bias-pull-up;
+			};
+		};
+
+		lge_ts_reset_suspend: ts_reset_suspend {
+			mux {
+				pins = "gpio21";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio21";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+	};
+
+	lge_pmx_ts_int {
+		lge_ts_int_active: ts_int_active {
+			mux {
+				pins = "gpio22";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio22";
+				drive-strength = <8>;
+				bias-pull-up;
+			};
+		};
+
+		lge_ts_int_suspend: ts_int_suspend {
+			mux {
+				pins = "gpio22";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio22";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+	};
+
+
+	smart_cover_pin {
+		smart_cover_default: smart_cover_default {
+			mux {
+				pins = "gpio99";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio99";
+				input-enable;
+				bias-pull-up;
+			};
+		};
+	};
+	sde_dp_usbplug_cc_suspend: sde_dp_usbplug_cc_susppend {
+		mux {
+			pins = "gpio124";
+			function = "";
+		};
+
+		config {
+			pins = "gpio124";
+			bias-pull-down;
+			drive-strength = <2>;
+		};
+	};
+
+	sde_dp_usbplug_cc_active: sde_dp_usbplug_cc_active {
+		mux {
+			pins = "gpio124";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio124";
+			bias-disable;
+			drive-strenght = <16>;
+		};
+	};
+	sde_dp_aux_active:sde_dp_aux_active {
+		mux {
+			pins = "gpio54", "gpio55";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio54", "gpio55";
+			bias-disable = <0>;
+			driver-strength = <8>;
+		};
+	};
+
+	sde_dp_aux_suspend:sde_dp_aux_suspend {
+		mux {
+			pins = "gpio54", "gpio55";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio54", "gpio55";
+			bias-pull-down;
+			driver-strength = <8>;
+		};
+	};
+};

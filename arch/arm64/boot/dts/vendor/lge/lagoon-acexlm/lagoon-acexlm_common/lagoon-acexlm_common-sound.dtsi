@@ -1,0 +1,116 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&wcd938x_tx_slave {
+	status = "disabled";
+};
+&wcd938x_rx_slave {
+	status = "disabled";
+};
+&wcd937x_tx_slave {
+	status = "okay";
+};
+&wcd937x_rx_slave {
+	status = "okay";
+};
+&swr0 {
+	qcom,swr-num-dev = <2>;
+};
+&wsa883x_0221 {
+	status = "disabled";
+};
+&wsa883x_0222 {
+	status = "disabled";
+};
+
+&wcd937x_codec {
+	qcom,cdc-micbias1-mv = <2800>;
+	qcom,cdc-micbias2-mv = <2100>;
+	qcom,cdc-micbias3-mv = <2800>;
+	qcom,cdc-micbias4-mv = <2800>;
+	status = "okay";
+};
+
+&lagoon_snd {
+	qcom,model = "lito-lagoonmtp-snd-card";
+	qcom,msm-mi2s-master = <1>, <1>, <1>, <1>, <1>, <1>;
+	qcom,wcn-btfm = <1>;
+	qcom,ext-disp-audio-rx = <0>;
+	qcom,audio-routing =
+		"AMIC1", "MIC BIAS1",
+		"MIC BIAS1", "Analog Mic1",
+		"AMIC2", "MIC BIAS2",
+		"MIC BIAS2", "Analog Mic2",
+		"AMIC3", "MIC BIAS3",
+		"MIC BIAS3", "Analog Mic3",
+		"AMIC4", "MIC BIAS1",
+		"MIC BIAS1", "Analog Mic4",
+		"IN1_HPHL", "HPHL_OUT",
+		"IN2_HPHR", "HPHR_OUT",
+		"IN3_AUX", "AUX_OUT",
+		"TX SWR_ADC0", "ADC1_OUTPUT",
+		"TX SWR_ADC2", "ADC2_OUTPUT",
+		"TX SWR_ADC3", "ADC3_OUTPUT",
+		"RX_TX DEC0_INP", "TX DEC0 MUX",
+		"RX_TX DEC1_INP", "TX DEC1 MUX",
+		"RX_TX DEC2_INP", "TX DEC2 MUX",
+		"RX_TX DEC3_INP", "TX DEC3 MUX",
+		"VA_AIF1 CAP", "VA_SWR_CLK",
+		"VA_AIF2 CAP", "VA_SWR_CLK",
+		"VA_AIF3 CAP", "VA_SWR_CLK",
+		"VA SWR_ADC0", "VA_SWR_CLK",
+		"VA SWR_ADC1", "VA_SWR_CLK",
+		"VA SWR_ADC2", "VA_SWR_CLK",
+		"VA SWR_ADC3", "VA_SWR_CLK",
+		"VA SWR_MIC0", "VA_SWR_CLK",
+		"VA SWR_MIC1", "VA_SWR_CLK",
+		"VA SWR_MIC2", "VA_SWR_CLK",
+		"VA SWR_MIC3", "VA_SWR_CLK",
+		"VA SWR_MIC4", "VA_SWR_CLK",
+		"VA SWR_MIC5", "VA_SWR_CLK",
+		"VA SWR_MIC6", "VA_SWR_CLK",
+		"VA SWR_MIC7", "VA_SWR_CLK",
+		"VA SWR_ADC0", "ADC1_OUTPUT",
+		"VA SWR_ADC2", "ADC2_OUTPUT",
+		"VA SWR_ADC3", "ADC3_OUTPUT";
+
+	qcom,msm-mbhc-hphl-swh = <1>;
+	qcom,msm-mbhc-gnd-swh = <0>;
+	asoc-codec  = <&stub_codec>, <&bolero>;
+	asoc-codec-names = "msm-stub-codec.1", "bolero_codec";
+	qcom,wsa-max-devs = <0>;
+	qcom,codec-max-aux-devs = <1>;
+	qcom,msm-mbhc-usbc-audio-supported = <0>;
+	qcom,codec-aux-devs = <&wcd937x_codec>;
+	qcom,msm_audio_ssr_devs = <&audio_apr>, <&q6core>,
+				  <&lpi_tlmm>, <&bolero>;
+	lge,hac-en-gpios = <&lge_hac_en_gpios>;
+};
+
+&dai_mi2s2 {
+	qcom,msm-mi2s-rx-lines = <1>;
+	qcom,msm-mi2s-tx-lines = <2>;
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&mi2s_2_sck_active &mi2s_2_ws_active
+		&mi2s_2_data0_active &mi2s_2_data1_active>;
+	pinctrl-1 = <&mi2s_2_sck_sleep &mi2s_2_ws_sleep
+		&mi2s_2_data0_sleep &mi2s_2_data1_sleep>;
+};
+
+
+&cdc_dmic01_gpios {
+	status = "disabled";
+};
+
+&q6core {
+	lge_hac_en_gpios: lge_hac_en_pinctrl {
+		status = "okay";
+		compatible = "qcom,msm-cdc-pinctrl";
+		pinctrl-names = "aud_active", "aud_sleep";
+		pinctrl-0 = <&lge_hac_en_active &lge_hac_in_active>;
+		pinctrl-1 = <&lge_hac_en_sleep &lge_hac_in_sleep>;
+	};
+};
+

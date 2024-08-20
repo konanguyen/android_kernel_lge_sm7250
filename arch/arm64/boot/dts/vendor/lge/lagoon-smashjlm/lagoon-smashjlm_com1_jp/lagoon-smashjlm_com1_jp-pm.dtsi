@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "../lagoon-smashjlm_common/lagoon-smashjlm_common-pm.dtsi"
+
+&soc {
+    lge_batterydata: qcom,battery-data {
+        qcom,batt-id-range-pct = <15>;
+        #include "../../battery_profile/LGE_BLT48_ATL_4000mAh.dtsi"
+        #include "../../battery_profile/LGE_BLT48_BYD_4000mAh.dtsi"
+    };
+};

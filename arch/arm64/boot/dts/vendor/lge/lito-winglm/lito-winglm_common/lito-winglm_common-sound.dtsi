@@ -1,0 +1,13 @@
+/* SPDX-License-Identifier: GPL-2.0-only */
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&wcd938x_codec {
+	qcom,cdc-micbias1-mv = <2700>;
+	qcom,cdc-micbias2-mv = <2000>;
+	qcom,cdc-micbias3-mv = <2700>;
+	qcom,cdc-micbias4-mv = <2700>;
+	qcom,cdc-vdd-mic-bias-voltage = <3296000 3960000>;
+};
+

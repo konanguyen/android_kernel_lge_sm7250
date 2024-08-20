@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+//from lagoon-mtp.dtsi
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/linux-event-codes.h>
+#include <dt-bindings/iio/qcom,spmi-vadc.h>
+#include "../../../qcom/lagoon-audio-overlay.dtsi"
+#include "../../../qcom/lagoon-sde-display.dtsi"
+#include "../../../qcom/lagoon-thermal-overlay.dtsi"
+
+//from LGE
+#include "../lagoon-smashjlm_common/lagoon-smashjlm_common.dtsi"
+#include "lagoon-smashjlm_com1_jp-pinctrl.dtsi"
+#include "lagoon-smashjlm_com1_jp-panel.dtsi"
+#include "lagoon-smashjlm_com1_jp-pm.dtsi"
+#include "lagoon-smashjlm_com1_jp-sound.dtsi"
+#include "lagoon-smashjlm_com1_jp-haptic.dtsi"
+#include "lagoon-smashjlm_com1_jp-connectivity.dtsi"
+#include "lagoon-smashjlm_com1_jp-nfc.dtsi"
+#include "lagoon-smashjlm_com1_jp-mme.dtsi"
+#include "lagoon-smashjlm_com1_jp-tdmb.dtsi"
+#include "lagoon-smashjlm_com1_jp-touch.dtsi"
+#include "lagoon-smashjlm_com1_jp-fingerprint.dtsi"
+#include "lagoon-smashjlm_com1_jp-usb.dtsi"
+#include "lagoon-smashjlm_com1_jp-storage.dtsi"
+#include "lagoon-smashjlm_com1_jp-misc.dtsi"
+#include "lagoon-smashjlm_com1_jp-sar.dtsi"

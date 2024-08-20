@@ -1,0 +1,62 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&soc{
+
+	fingerprint@0 {
+		compatible = "egistec,et713";
+		egistec,gpio_irq = <&tlmm 124 0x00>;
+		egistec,gpio_rst = <&tlmm 63 0x00>;
+		vcc_spi-supply = <&pm8150_l10>;
+		pinctrl-names = "et713_reset_reset",
+			"et713_reset_active",
+			"et713_irq_active";
+		pinctrl-0 = <&et713_reset_reset>;
+		pinctrl-1 = <&et713_reset_active>;
+		pinctrl-2 = <&et713_irq_active>;
+		status = "ok";
+	};
+};
+
+&tlmm {
+	et713_reset_reset: et713_reset_reset {
+		mux {
+			pins = "gpio63";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio63";
+			drive-strength = <2>;
+			bias-disable;
+			output-low;
+		};
+	};
+
+	et713_reset_active: et713_reset_active {
+		mux {
+			pins = "gpio63";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio63";
+			drive-strength = <2>;
+			bias-disable;
+			output-high;
+		};
+	};
+
+	et713_irq_active: et713_irq_active {
+		mux {
+			pins = "gpio124";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio124";
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+};

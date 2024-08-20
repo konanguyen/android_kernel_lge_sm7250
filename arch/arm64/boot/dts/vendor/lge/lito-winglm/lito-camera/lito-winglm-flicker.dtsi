@@ -1,0 +1,8 @@
+&qupv3_se9_i2c {
+	status = "ok";
+	tcs3407@39 {
+		compatible = "ams_tcs3407";
+		reg = <0x39>;
+		status = "ok";
+	};
+};

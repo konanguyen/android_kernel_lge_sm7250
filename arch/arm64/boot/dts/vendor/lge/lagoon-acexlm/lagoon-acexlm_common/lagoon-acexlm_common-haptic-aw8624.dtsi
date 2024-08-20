@@ -1,0 +1,51 @@
+/* SPDX-License-Identifier: GPL-2.0-only */
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+/*
+ * Copyright (c) 2018, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&qupv3_se2_i2c {
+	status = "ok";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	aw8624_haptic@5A {
+		compatible = "awinic,aw8624_haptic";
+		reg = <0x5A>;
+		reset-gpio = <&tlmm 35 0>;
+		vib_mode = <0>;  /*mode:  RAM mode->0; CONT mode -> 1*/
+		vib_f0_pre = <2350>;
+		vib_f0_cali_percen = <7>;
+		vib_cont_drv_lev = <125>;
+		vib_cont_drv_lvl_ov = <155>;
+		vib_cont_td = <0xF06C>;
+		vib_cont_zc_thr = <0x08F8>;
+		vib_cont_num_brk = <3>;
+		vib_f0_coeff = <260>; /*Don't modify it*/
+		vib_duration_time = <20 30 70 0 0>;
+		vib_brake_cont_config = <1 1 90 42 20 5 2 2 0 0 0  0  0  0 0 0 0 0 0   0  0  0 0 0>;
+		vib_f0_trace_parameter = <9 3 1 31>;
+		vib_bemf_config = <0x10 0x08 0x23 0xf8>;
+		vib_sw_brake = <0x08>;
+		vib_wavseq = <0 5 1 2 2 3 3 4 0 0 0 0 0 0 0 0>; /*wavseq1-seq8 0x07-0x0E*/
+		vib_wavloop = <1 1 1 1 1 1 1 1 1 1>;/*loop1-mainloog 0x0f-0x13*/
+		vib_td_brake = <42720 42720 42720>; /*level0  level1  level2*/
+		vib_tset = <0x11>;
+		vib_func_parameter1 = <1000>;
+		vib_ram_config = <1>;
+		vib_vbat_cmp = <0>;
+		status = "okay";
+	};
+};
+

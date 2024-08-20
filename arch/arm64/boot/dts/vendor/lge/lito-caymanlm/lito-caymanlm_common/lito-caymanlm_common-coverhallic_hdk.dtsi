@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&soc {
+	gpio_keys {
+		ds3_smart_cover {
+			status = "disabled";
+		};
+
+		ds3_cover_display_back {
+			status = "disabled";
+		};
+	};
+};

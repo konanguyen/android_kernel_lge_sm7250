@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "../lito-victorialm_common/lito-victorialm_common-misc.dtsi"
+
+&qupv3_se9_i2c {
+	/* Override sleep state of pins */
+	pinctrl-1 = <&qupv3_se9_i2c_active>;
+};

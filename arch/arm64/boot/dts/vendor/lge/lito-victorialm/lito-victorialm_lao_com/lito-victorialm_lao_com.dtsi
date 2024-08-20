@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include <dt-bindings/gpio/gpio.h>
+#include "../../../qcom/lito-audio-overlay.dtsi"
+#include "../../../qcom/lito-pmic-overlay.dtsi"
+#include "../../../qcom/lito-sde-display.dtsi"
+#include "../../../qcom/lito-thermal-overlay.dtsi"
+
+#include "../lito-victorialm_common/lito-victorialm_common.dtsi"
+#include "lito-victorialm_lao_com-pinctrl.dtsi"
+#include "lito-victorialm_lao_com-panel.dtsi"
+#include "lito-victorialm_lao_com-hallic.dtsi"
+#include "lito-victorialm_lao_com-connectivity.dtsi"
+#include "lito-victorialm_lao_com-nfc.dtsi"
+#include "lito-victorialm_lao_com-mme.dtsi"
+#include "lito-victorialm_lao_com-tdmb.dtsi"
+#include "lito-victorialm_lao_com-touch.dtsi"
+#include "lito-victorialm_lao_com-sar.dtsi"
+#include "lito-victorialm_lao_com-storage.dtsi"
+#include "lito-victorialm_lao_com-misc.dtsi"

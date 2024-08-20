@@ -1,0 +1,98 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "lito-caymanlm_common-usb-sls11hc.dtsi"
+
+&pm7250b_pdphy {
+	lge,sbu-sel-gpio = <&tlmm 67 GPIO_ACTIVE_HIGH>;
+	lge,uart-sbu-sel-gpio = <&tlmm 68 GPIO_ACTIVE_HIGH>;
+};
+
+/*
+ * LGE USB Type-C CC/SBU Protection Switch driver
+ */
+
+&soc {
+	lge_sbu_switch: lge_sbu_switch {
+		compatible = "lge,lge_sbu_switch";
+
+		lge,sel-gpio = <&tlmm 67 0>;
+		lge,uart-sbu-sel-gpio = <&tlmm 68 0>;
+		lge,reverse-sbu-switch;
+		/* lge,ovp-gpio */
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&lge_sbu_switch_sel_active /* &lge_sbu_switch_ovp_active */>;
+	};
+};
+
+&tlmm {
+        lge_sbu_switch_sel_active: lge_sbu_switch_sel_active {
+                mux {
+                        pins = "gpio67";
+                        function = "gpio";
+                };
+
+                config {
+                        pins = "gpio67";
+                        bias-disable;
+                };
+        };
+};
+
+/*
+ * LGE USB UART debugger driver
+ */
+
+&soc {
+	lge_usb_debugger: lge_usb_debugger {
+		compatible = "lge,usb_debugger";
+
+	};
+};
+
+/*
+ * LGE USB DS3 driver
+ */
+&soc {
+	lge_usb_ds3: lge_usb_ds3 {
+		compatible = "lge,usb_ds3";
+		vconn-supply = <&smb5_vconn>;
+		//lge,ds-en-gpio = <&pm7250b_gpios 11 0>;
+		lge,ds-id-ldo-en-gpio = <&tlmm 22 0>;
+		lge,load-sw-on-gpio = <&tlmm 90 0>;
+		usbpd = <&pm7250b_pdphy>;
+		extcon = <&pm7250b_pdphy>;
+		lge,use-primary-usb;
+     };
+};
+
+&usb2_phy0 {
+	qcom,hsusb-phy-tune = <0x61 0xCF 0x2E 0x03>;
+	qcom,hsusb-phy-tune-host = <0x61 0x83 0x2E 0x03>;
+};
+
+&soc {
+    vdda_usb_ss_dp_core: vdda_usb_ss_dp_core {
+        compatible = "regulator-fixed";
+        regulator-name = "vdd_supply";
+        regulator-min-microvolt = <880000>;
+        regulator-max-microvolt = <880000>;
+        enable-active-high;
+        gpio = <&pm8150l_gpios 12 GPIO_ACTIVE_HIGH>;
+        pinctrl-names = "default";
+        pinctrl-0 = <&usb_eldo13>;
+    };
+};
+
+&usb_qmp_dp_phy {
+    vdd-supply = <&vdda_usb_ss_dp_core>;
+};
+
+&sde_dp {
+    vdda-0p9-supply = <&vdda_usb_ss_dp_core>;
+};
+
+

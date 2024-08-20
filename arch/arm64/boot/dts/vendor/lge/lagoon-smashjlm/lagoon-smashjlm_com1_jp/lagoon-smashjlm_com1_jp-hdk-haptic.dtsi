@@ -1,0 +1,7 @@
+&qupv3_se2_i2c {
+	status = "disabled";
+};
+
+&pm7250b_vib {
+	status = "okay";
+};

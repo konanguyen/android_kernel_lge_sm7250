@@ -1,0 +1,196 @@
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&tlmm {
+	es9218_reset {
+		es9218_reset_default: es9218_reset_default {
+			mux {
+				pins = "gpio138";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio138";
+				drive-strength = <2>;
+				output-low;
+				bias-disable;
+			};
+		};
+	};
+
+        es9218_hph_sw {
+                es9218_hph_sw_default: es9218_hph_sw_default {
+                        mux {
+                                pins = "gpio139";
+                                function = "gpio";
+                        };
+
+                        config {
+                                pins = "gpio139";
+                                drive-strength = <2>;
+                                output-low;
+                                bias-disable;
+                        };
+                };
+        };
+
+	sec_mi2s_sck {
+		sec_mi2s_sck_sleep: sec_mi2s_sck_sleep {
+			mux {
+				pins = "gpio70";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio70";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+				input-enable;
+			};
+		};
+
+		sec_mi2s_sck_active: sec_mi2s_sck_active {
+			mux {
+				pins = "gpio70";
+				function = "sec_mi2s";
+			};
+
+			config {
+				pins = "gpio70";
+				drive-strength = <8>;   /* 8 mA */
+				bias-disable;           /* NO PULL */
+			};
+		};
+	};
+
+	sec_mi2s_ws {
+		sec_mi2s_ws_sleep: sec_mi2s_ws_sleep {
+			mux {
+				pins = "gpio71";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio71";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+				input-enable;
+			};
+		};
+
+		sec_mi2s_ws_active: sec_mi2s_ws_active {
+			mux {
+				pins = "gpio71";
+				function = "sec_mi2s";
+			};
+
+			config {
+				pins = "gpio71";
+				drive-strength = <8>;   /* 8 mA */
+				bias-disable;           /* NO PULL */
+			};
+		};
+	};
+
+	sec_mi2s_sd0 {
+		sec_mi2s_sd0_sleep: sec_mi2s_sd0_sleep {
+			mux {
+				pins = "gpio72";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio72";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+				input-enable;
+			};
+		};
+
+		sec_mi2s_sd0_active: sec_mi2s_sd0_active {
+			mux {
+				pins = "gpio72";
+				function = "sec_mi2s";
+			};
+
+			config {
+				pins = "gpio72";
+				drive-strength = <8>;   /* 8 mA */
+				bias-disable;           /* NO PULL */
+			};
+		};
+	};
+
+};
+
+&pm8150_gpios {
+	es9218_power {
+		es9218_power_default: es9218_power_default {
+			pins = "gpio9";
+			function = "normal";
+			output-low;
+			power-source = <1>;	/* 1.8V input supply */
+		};
+	};
+};
+
+&qupv3_se4_i2c{ /* QUPV3 SE9  */
+	status = "ok";
+
+	es9218_dac: es9218-codec@48{
+		compatible = "dac,es9218-codec";
+		status = "ok";
+		reg = <0x48>;
+		dac,use-internal-ldo;
+		dac,power-gpio = <&pm8150_gpios 9 0x0>;
+		dac,hph-sw = <&tlmm 139 0x0>;
+		dac,reset-gpio = <&tlmm 138 0x0>;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&es9218_power_default>,<&es9218_hph_sw_default>,<&es9218_reset_default>;
+
+	};
+};
+
+&pm8150_gpios {
+	gpio@c800 { /* GPIO 9 - HIFI_LDO_SW */
+		qcom,mode = <1>;			/* Digital output */
+		qcom,pull = <4>;			/* Pull down */
+		qcom,vin-sel = <2>;			/* Vin2 */
+		qcom,src-sel = <0>;			/* Constant */
+		qcom,invert = <0>;			/* Disable Invert */
+		qcom,out-strength = <1>;	/* Low */
+		qcom,master-en = <1>;		/* Disable GPIO */
+		status = "okay";
+	};
+
+	gpio@c700 { /* GPIO 8 - HIFI_MODE2 */
+		qcom,mode = <1>;			/* Digital output */
+		qcom,pull = <4>;			/* Pull down */
+		qcom,vin-sel = <2>;			/* Vin 2 */
+		qcom,src-sel = <0>;			/* Constant */
+		qcom,invert = <0>;			/* Invert */
+		qcom,out-strength = <1>;	/* Low */
+		qcom,master-en = <1>;		/* Enable GPIO */
+		status = "okay";
+	};
+};
+
+&dai_mi2s1 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&sec_mi2s_sck_active &sec_mi2s_ws_active
+			&sec_mi2s_sd0_active>;
+	pinctrl-1 = <&sec_mi2s_sck_sleep &sec_mi2s_ws_sleep
+			&sec_mi2s_sd0_sleep>;
+};
+

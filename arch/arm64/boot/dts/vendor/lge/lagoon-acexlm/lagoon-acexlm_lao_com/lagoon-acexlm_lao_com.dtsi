@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+//from lagoon-mtp.dtsi
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/linux-event-codes.h>
+#include <dt-bindings/iio/qcom,spmi-vadc.h>
+#include "../../../qcom/lagoon-audio-overlay.dtsi"
+#include "../../../qcom/lagoon-sde-display.dtsi"
+#include "../../../qcom/lagoon-thermal-overlay.dtsi"
+
+//from LGE
+#include "../lagoon-acexlm_common/lagoon-acexlm_common.dtsi"
+#include "lagoon-acexlm_lao_com-pinctrl.dtsi"
+#include "lagoon-acexlm_lao_com-panel.dtsi"
+#include "lagoon-acexlm_lao_com-pm.dtsi"
+#include "lagoon-acexlm_lao_com-sound.dtsi"
+#include "lagoon-acexlm_lao_com-haptic.dtsi"
+#include "lagoon-acexlm_lao_com-connectivity.dtsi"
+#include "lagoon-acexlm_lao_com-nfc.dtsi"
+#include "lagoon-acexlm_lao_com-mme.dtsi"
+#include "lagoon-acexlm_lao_com-tdmb.dtsi"
+#include "lagoon-acexlm_lao_com-touch.dtsi"
+#include "lagoon-acexlm_lao_com-fingerprint.dtsi"
+#include "lagoon-acexlm_lao_com-usb.dtsi"
+#include "lagoon-acexlm_lao_com-storage.dtsi"
+#include "lagoon-acexlm_lao_com-misc.dtsi"
+#include "lagoon-acexlm_lao_com-sar.dtsi"

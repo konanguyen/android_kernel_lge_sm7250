@@ -1,0 +1,12 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&soc {
+	gpio_keys {
+		compatible = "gpio-keys";
+		label = "gpio_keys";
+		status = "okay";
+	};
+};

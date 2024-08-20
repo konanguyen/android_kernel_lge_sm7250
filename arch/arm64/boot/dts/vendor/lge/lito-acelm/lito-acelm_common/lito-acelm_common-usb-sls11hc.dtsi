@@ -1,0 +1,186 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&qupv3_se0_spi {
+	cs-gpios = <&tlmm 45 0>;
+	qcom,rt;
+	lge,force-clk-idx0;
+	status = "ok";
+
+	fpga_mgr0: lattice@0 {
+		compatible = "lattice,ice40-fpga-mgr";
+		reg = <0>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <110 IRQ_TYPE_LEVEL_HIGH>;
+
+		spi-max-frequency = <10000000>;
+
+		/* cdone-gpio = <&tlmm 35 0>; */
+		reset-gpio = <&tlmm 132 GPIO_ACTIVE_LOW>;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&lattice0_cs_active
+				&lattice0_int_active
+				&lattice0_reset_active
+				/* &lattice0_cdone_active */>;
+	};
+};
+
+&soc {
+	/* Secondary USB port related controller */
+	usb1: sls11hc@0 {
+		compatible = "sls,sls11hc";
+
+		clocks = <&rpmhcc RPMH_LN_BB_CLK2>;
+		clock-names = "core_clk";
+
+		vdda18-supply = <&pm8150_s4>;
+		vdda33-supply = <&pm8150_l2>;
+		ldo1_en-gpio = <&tlmm 144 GPIO_ACTIVE_HIGH>;
+
+		reset-gpio = <&tlmm 22 GPIO_ACTIVE_LOW>;
+
+		ds_sw_sel-gpio = <&tlmm 64 GPIO_ACTIVE_HIGH>;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&sls11hc0_ldo_en_active
+				&sls11hc0_reset_active
+				&sls11hc0_ds_sw_sel_active>;
+
+		fpga-mgr = <&fpga_mgr0>;
+		firmware-name = "lattice/u11hc_spi_lge_des_impl_1.bin";
+
+		spi-max-frequency = <1920000>;
+
+		extcon = <&lge_usb_ds3>, <&pm7250b_pdphy>;
+	};
+};
+
+&qupv3_se0_spi_active {
+	mux {
+		pins = "gpio42", "gpio43", "gpio44";
+		function = "qup00";
+	};
+
+	config {
+		pins = "gpio42", "gpio43", "gpio44";
+		drive-strength = <6>;
+		bias-disable;
+	};
+};
+
+&qupv3_se0_spi_sleep {
+	mux {
+		pins = "gpio42", "gpio43", "gpio44";
+		function = "gpio";
+	};
+
+	config {
+		pins = "gpio42", "gpio43", "gpio44";
+		drive-strength = <6>;
+		bias-disable;
+	};
+};
+
+&tlmm {
+	lattice0_pins: lattice0_pins {
+		lattice0_cs_active: lattice0_cs_active {
+			mux {
+				pins = "gpio45";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio45";
+				drive-strength = <6>;
+				bias-disable;
+				output-high;
+			};
+		};
+
+		lattice0_int_active: lattice0_int_active {
+			mux {
+				pins = "gpio110";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio110";
+				//drive-strength = <2>; /* 2 mA */
+				bias-disable;
+				input-enable;
+			};
+		};
+
+		lattice0_reset_active: lattice0_reset_active {
+			mux {
+				pins = "gpio132";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio132";
+				bias-disable;
+			};
+		};
+
+		/*
+		lattice0_cdone_active: lattice0_cdone_active {
+			mux {
+				pins = "gpio35";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio35";
+				bias-disable;
+				input-enable;
+			};
+		};
+		*/
+	};
+
+	sls11hc0_pins: sls11hc0_pins {
+		sls11hc0_ldo_en_active: sls11hc0_ldo_en_active {
+			mux {
+				pins = "gpio144";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio144";
+				bias-pull-down;
+			};
+		};
+
+		sls11hc0_reset_active: sls11hc0_reset_active {
+			mux {
+				pins = "gpio22";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio22";
+				bias-disable;
+			};
+		};
+
+		sls11hc0_ds_sw_sel_active: sls11hc0_ds_sw_sel_active {
+			mux {
+				pins = "gpio64";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio64";
+				bias-disable;
+			};
+		};
+	};
+};
+
+&qupv3_se0_i2c {
+	status = "disabled";
+};

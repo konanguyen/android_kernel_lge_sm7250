@@ -1,0 +1,15 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+&qupv3_se4_i2c {
+	status = "okay";
+	dw7800@59 {
+		compatible = "dongwoon,dw7800";
+		status = "ok";
+		reg = <0x59>;
+		dongwoon,vpwr-on = <0>;
+	};
+};
+
+

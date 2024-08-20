@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "../lito-victorialm_common/lito-victorialm_common-touch.dtsi"
+
+&qupv3_se7_i2c {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	status = "ok";
+
+	sw42902@28 {
+		status = "ok";
+		fw_image = "touch/caymanlm/B3W68CAYMAN_0_18.img",
+			"touch/caymanlm/B3W68DS3_0_24.img";
+	};
+
+	sw42000@28 {
+		status = "disabled";
+	};
+
+	sw49107@29 {
+		status = "disabled";
+	};
+};
+

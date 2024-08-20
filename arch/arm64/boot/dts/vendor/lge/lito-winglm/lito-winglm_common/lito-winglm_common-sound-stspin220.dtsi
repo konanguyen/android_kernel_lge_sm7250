@@ -1,0 +1,104 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+&soc {
+	lge,motor-stspin220 {
+		compatible = "lge,motor-stspin220";
+		regulator-name = "lge,motor-driver";
+		lge,motor-enable = <&tlmm 32 GPIO_ACTIVE_HIGH>;		// EN
+		lge,motor-direction = <&tlmm 57 GPIO_ACTIVE_HIGH>;	// DIR
+		lge,motor-sleep = <&tlmm 31 GPIO_ACTIVE_HIGH>;		// SLEEP
+		lge,motor-fault = <&tlmm 12 GPIO_ACTIVE_HIGH>;		// FAULT
+		pwms = <&pm8150l_pwm 0 1000000>;                    // PWM GPIO06
+//		pwm-names = "enable_pwm";
+		pinctrl-names = "default";
+		pinctrl-0 = <&motor_pwm_default>;
+//		pinctrl-names = "default", "enable", "direction", "sleep", "fault";
+//		pinctrl-0 = <&motor_pwm_default>, <&motor_enable>, <&motor_direction>, <&motor_sleep>, <&motor_fault>;
+	};
+};
+
+&pm8150l_gpios {
+	motor_pwm {
+		motor_pwm_default: motor_pwm_default {
+			pins = "gpio6";
+			function = "func1";
+			bias-disable;
+			power-source = <0>;
+			output-low;
+			qcom,drive-strength = <3>;
+			drive-push-pull;
+		};
+	};
+};
+
+&tlmm {
+	motor_enable: motor_enable {
+		mux {
+			pins = "gpio32";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio32";
+			drive-strength = <8>;
+			output-low;
+			bias-pull-down;
+		};
+	};
+
+	motor_direction: motor_direction {
+		mux {
+			pins = "gpio57";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio57";
+			drive-strength = <8>;
+			output-low;
+			bias-pull-down;
+		};
+	};
+
+	motor_sleep: motor_sleep {
+		mux {
+			pins = "gpio31";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio31";
+			drive-strength = <8>;
+			output-low;
+			bias-pull-down;
+		};
+	};
+
+	motor_fault: motor_fault {
+		mux {
+			pins = "gpio12";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio12";
+			drive-strength = <8>;
+			input-enable;
+			bias-pull-down;
+		};
+	};
+};
+
+/*
+&spmi_bus {
+	qcom,pm8150l@5 {
+		pm8150l_pwm: qcom,pwms@bc00 {
+			compatible = "qcom,pwm-lpg";
+			reg = <0xbc00 0x200>;
+			reg-names = "lpg-base";
+			qcom,num-lpg-channels = <2>;
+			#pwm-cells = <2>;
+		};
+	};
+};
+*/
+
+

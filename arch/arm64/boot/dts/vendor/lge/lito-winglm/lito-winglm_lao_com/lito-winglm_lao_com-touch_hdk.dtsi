@@ -1,0 +1,62 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "../lito-winglm_common/lito-winglm_common-touch.dtsi"
+
+&pm8150_gpios {
+	touch_pm8150_gpio{
+		touch_pm8150_gpio_default: touch_pm8150_gpio_default {
+			pins = "gpio9";
+			function = "normal";
+			power-source = <0>;
+			output-low;
+			input-disable;
+		};
+	};
+};
+
+&pm7250b_gpios {
+	touch_pm7250b_gpio{
+		touch_pm7250b_gpio_default: touch_pm7250b_gpio_default {
+			pins = "gpio10";
+			function = "normal";
+			power-source = <0>;
+			output-low;
+			input-disable;
+		};
+	};
+};
+
+
+&qupv3_se7_i2c {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	status = "ok";
+
+	sw42902@28 {
+		status = "ok";
+	};
+};
+
+&qupv3_se0_i2c {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	status = "ok";
+
+	sw42902_sub@29 {
+		status = "ok";
+
+		pinctrl-names = "touch_sub_pin_active", "touch_sub_pin_sleep", "touch_pm8150_gpio_default", "touch_pm7250b_gpio_default";
+		pinctrl-0 = <&ts_sub_reset_active &ts_sub_int_active>;
+		pinctrl-1 = <&ts_sub_reset_suspend &ts_sub_int_suspend>;
+		pinctrl-2 = <&touch_pm8150_gpio_default &touch_pm7250b_gpio_default>;
+
+		vdd-gpio = <&pm8150_gpios 9 0x00>;
+		vcl-gpio = <&pm7250b_gpios 10 0x00>;
+	};
+};
+

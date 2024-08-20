@@ -1,0 +1,29 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "lito-victorialm_lao_com.dtsi"
+#include "lito-victorialm_lao_com-pm.dtsi"
+#include "../lito-camera/lito-victorialm-camera_rev-0.1.dtsi"
+#include "../lito-victorialm_common/lito-victorialm_common-fingerprint_rev0.dtsi"
+#include "lito-victorialm_lao_com-usb.dtsi"
+#include "lito-victorialm_lao_com-sound.dtsi"
+
+/ {
+	model = "LG Electronics, Victorialm, HW Rev 0.1";
+	compatible = "qcom,lito-mtp", "qcom,lito", "qcom,mtp";
+	qcom,msm-id = <400 0x10000>;
+	qcom,board-id = <0x00040008 0>;
+};
+
+&qupv3_se9_i2c {
+	status = "disabled";
+};
+
+&qupv3_se1_i2c {
+	status = "disabled";
+};
+
+&lge_usb_ds3 {
+	lge,use-primary-usb;
+};

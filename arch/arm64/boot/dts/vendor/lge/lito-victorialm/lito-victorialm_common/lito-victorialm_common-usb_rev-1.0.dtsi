@@ -1,0 +1,103 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+#include "lito-victorialm_common-usb-sls11hc.dtsi"
+
+&pm7250b_pdphy {
+    lge,sbu-sel-gpio = <&tlmm 112 0>;
+    lge,uart-sbu-sel-gpio = <&tlmm 0>;
+    lge,uart-edp-oe-gpio = <&tlmm 93 0>;
+};
+
+/*
+ * LGE USB Type-C CC/SBU Protection Switch driver
+ */
+
+&soc {
+    lge_sbu_switch: lge_sbu_switch {
+        compatible = "lge,lge_sbu_switch";
+
+        lge,sel-gpio = <&tlmm 112 0>;
+        lge,uart-sbu-sel-gpio = <&tlmm 113 0>;
+        lge,uart-edp-oe-gpio = <&tlmm 93 0>;
+        lge,reverse-sbu-switch;
+        /* lge,ovp-gpio */
+
+        pinctrl-names = "default";
+        pinctrl-0 = <&lge_sbu_switch_sel_active /* &lge_sbu_switch_ovp_active */>;
+	};
+};
+
+&tlmm {
+    lge_ds_en_active: lge_ds_en_active {
+        mux {
+            pins = "gpio100";
+            function = "gpio";
+        };
+        config {
+            pins = "gpio100";
+            bias-disable = <0>;
+            drive-strength = <2>;
+        };
+    };
+    lge_sbu_switch_sel_active: lge_sbu_switch_sel_active {
+        mux {
+            pins = "gpio112";
+            function = "gpio";
+        };
+        config {
+            pins = "gpio112";
+            bias-disable;
+        };
+    };
+    lge_acc_id_detect_en_active:  lge_acc_id_detect_en_active {
+        mux {
+            pins = "gpio125";
+            function = "gpio";
+        };
+        config {
+            pins = "gpio125";
+            bias-pull-down;
+        };
+    };
+};
+
+/*
+ * LGE USB UART debugger driver
+ */
+&soc {
+    lge_usb_debugger: lge_usb_debugger {
+        compatible = "lge,usb_debugger";
+    };
+};
+
+/*
+ * LGE USB DS3 driver
+ */
+&soc {
+    lge_usb_ds3: lge_usb_ds3 {
+        compatible = "lge,usb_ds3";
+        vconn-supply = <&smb5_vconn>;
+        lge,load-sw-on-gpio = <&tlmm 90 0>;
+        lge,ds-en-gpio = <&tlmm 100 0>;
+        usbpd = <&pm7250b_pdphy>;
+        extcon = <&pm7250b_pdphy>;
+
+        io-channels = <&pm7250b_vadc ADC_AMUX_THM4_PU2>;
+        io-channel-names = "amux_thm4";
+        lge,acc-high-thr = <970000>;
+        lge,acc-low-thr = <620000>;
+        lge,acc_det_vadc;
+
+        pinctrl-names = "default";
+        pinctrl-0 = <&lge_ds_en_active
+                        &lge_acc_id_detect_en_active>;
+     };
+};
+
+&usb2_phy0 {
+    qcom,hsusb-phy-tune = <0xE1 0x0C 0x24 0x03>;
+    qcom,hsusb-phy-tune-host = <0x07 0x0F 0x2E 0x03>;
+};

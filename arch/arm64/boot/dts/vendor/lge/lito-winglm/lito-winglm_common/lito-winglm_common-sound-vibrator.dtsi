@@ -1,0 +1,41 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+&qupv3_se4_i2c {
+	status = "okay";
+	dw7800@59 {
+		compatible = "dongwoon,dw7800";
+		status = "disabled";
+		reg = <0x59>;
+		dongwoon,vpwr-on = <0>;
+	};
+
+	dw7914@59 {
+		compatible = "dwanatech,dw7914";
+		status = "disabled";
+		reg = <0x59>;
+		dongwoon,vpwr-on = <0>;
+		use_en_pin = <0>; /* 1 = use en pin, 0 = do not use en pin */
+	};
+};
+
+&qupv3_se9_i2c {
+	status = "okay";
+	dw7800@59 {
+		compatible = "dongwoon,dw7800";
+		status = "disabled";
+		reg = <0x59>;
+		dongwoon,vpwr-on = <0>;
+	};
+
+	dw7914@59 {
+		compatible = "dwanatech,dw7914";
+		status = "disabled";
+		reg = <0x59>;
+		dongwoon,vpwr-on = <0>;
+		use_en_pin = <0>; /* 1 = use en pin, 0 = do not use en pin */
+	};
+};
+
+

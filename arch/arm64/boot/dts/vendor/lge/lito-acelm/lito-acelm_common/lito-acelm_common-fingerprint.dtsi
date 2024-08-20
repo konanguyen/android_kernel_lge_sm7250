@@ -1,0 +1,76 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ */
+
+&soc{
+
+	fpc1020 {
+		status = "ok";
+		compatible = "fpc,fpc1020";
+		interrupt-parent = <&tlmm>;
+		interrupts = <124 0x0>;
+		fpc,gpio_rst    = <&tlmm 63 0x0>;
+		fpc,gpio_irq    = <&tlmm 124 0x0>;
+		/*vcc_spi-supply  = <&pm8150a_l8>;*/
+		vdd_io-supply   = <&pm8150a_l8>;
+		/*vdd_ana-supply  = <&pm8150a_l8>;*/
+		fpc,enable-on-boot;
+		fpc,enable-wakeup;
+
+		pinctrl-names = "fpc1020_reset_reset",
+			"fpc1020_reset_active",
+			"fpc1020_irq_active";
+
+		pinctrl-0 = <&msm_gpio_63>;
+		pinctrl-1 = <&msm_gpio_63_output_high>;
+		pinctrl-2 = <&msm_gpio_124>;
+	};
+
+};
+
+&tlmm {
+	/* GPIO_63 : FP_RESET_N */
+	msm_gpio_63: msm_gpio_63 {
+		mux {
+			 pins = "gpio63";
+			 function = "gpio";
+		};
+
+		config {
+			pins = "gpio63";
+			drive-strength = <2>;
+			bias-disable;
+			output-low;
+		};
+	};
+
+	/* GPIO_63 : FP_RESET_N, state device active*/
+	msm_gpio_63_output_high: msm_gpio_63_output_high {
+		mux {
+			pins = "gpio63";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio63";
+			drive-strength = <2>;
+			bias-disable;
+			output-high;
+		};
+	};
+
+	/* GPIO_124 : FP_INT_N */
+	msm_gpio_124: msm_gpio_124 {
+		mux {
+			pins = "gpio124";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio124";
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+};
