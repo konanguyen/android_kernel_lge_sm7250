@@ -1,7 +1,0 @@
-#
-# Nxp SPi protocol (SPI) devices
-#
-
-config NFC_SELECTIVE_DRIVER
-	bool "NFC_SELECTIVE_DRIVER"
-	default n

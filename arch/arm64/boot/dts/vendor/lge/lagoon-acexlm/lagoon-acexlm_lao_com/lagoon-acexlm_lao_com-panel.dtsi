@@ -1,6 +1,0 @@
-// SPDX-License-Identifier: GPL-2.0-only
-/*
- * Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
- */
-
-#include "../lagoon-acexlm_common/lagoon-acexlm_common-panel.dtsi"
