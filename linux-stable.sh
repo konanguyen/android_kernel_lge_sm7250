@@ -174,7 +174,7 @@ function update_remote() {
     # Add remote if it isn't already present
     cd "${KERNEL_FOLDER}" || die "Could not change into ${KERNEL_FOLDER}!"
 
-    if git fetch --tags https://android.googlesource.com/kernel/common; then
+    if git fetch --tags https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/; then
         success "linux-stable updated successfully!"
     else
         die "linux-stable update failed!"
